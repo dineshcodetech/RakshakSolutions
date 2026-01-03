@@ -14,29 +14,71 @@
 </head>
 
 <body>
-    <!-- Preloader with Smoke and Floating Logo -->
+    <!-- Custom Cursor Glow -->
+    <div id="cursor-glow"></div>
+    <div id="cursor-outer"></div>
+
+    <!-- Cinematic Atmosphere Layers -->
+    <div class="atmosphere-burn"></div>
+    <div class="vignette"></div>
+
+    <!-- Preloader with Premium Effects -->
     <div class="preloader" id="preloader">
         <div class="splash-container">
+            <!-- Cinematic Energy Rings -->
+            <div class="splash-rings">
+                <div class="s-ring r1"></div>
+                <div class="s-ring r2"></div>
+                <div class="s-ring r3"></div>
+            </div>
+
+            <!-- Atmospheric Depth -->
+            <div class="splash-nebula"></div>
+            <div class="splash-grid"></div>
+            <div class="splash-reflection"></div>
+
             <div class="smoke-wrap">
                 <img src="smoke.png" alt="Smoke Background" class="smoke-image">
             </div>
+
             <div class="logo-wrap">
-                <img src="logo.png" alt="Rakshak Logo" class="floating-logo">
+                <div class="splash-logo">
+                    <span class="splash-logo-text">RAK</span>
+                    <div class="splash-shield-container">
+                        <svg viewBox="0 0 100 120" class="splash-shield-svg">
+                            <defs>
+                                <linearGradient id="splashShieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff416c" />
+                                    <stop offset="100%" style="stop-color:#ff4b2b" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M50 5 L95 25 L95 55 C95 85 50 115 50 115 C50 115 5 85 5 55 L5 25 Z"
+                                fill="url(#splashShieldGrad)" stroke="var(--color-blue-primary)" stroke-width="3" />
+                            <text x="50" y="82" text-anchor="middle" class="splash-shield-s">S</text>
+                        </svg>
+                    </div>
+                    <span class="splash-logo-text">HAK</span>
+                </div>
+                <div class="scan-bar"></div>
+                <div class="holographic-glitch"></div>
             </div>
             <div class="loader-content">
-                <div class="loader-text">INITIALIZING PROTECTION</div>
-                <div class="loader-bar">
+                <div class="loader-status">AUTHENTICATING SECURE PROTOCOLS</div>
+                <div class="loader-bar-container">
                     <div class="loader-progress"></div>
+                    <div class="loader-glitch"></div>
                 </div>
+                <div class="loader-percentage">0%</div>
             </div>
         </div>
     </div>
 
-    <!-- Particle Canvas -->
-    <canvas id="particles"></canvas>
-
-    <!-- Smoke Effect Canvas -->
-    <canvas id="smoke"></canvas>
+    <!-- Particle & Nebula Canvas -->
+    <div class="canvas-container">
+        <canvas id="particles"></canvas>
+        <canvas id="smoke"></canvas>
+        <div class="nebula-overlay"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -53,9 +95,11 @@
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#products" class="nav-link">Products</a></li>
-                <li><a href="#team" class="nav-link">Our Team</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#clientele" class="nav-link">Clientele</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -76,23 +120,21 @@
             <h1 class="hero-title">
                 <span class="title-line">
                     <span class="char">R</span><span class="char">A</span><span class="char">K</span>
-                </span>
-                <span class="title-shield-container">
-                    <span class="title-shield">
-                        <svg viewBox="0 0 100 120" class="inline-shield">
-                            <defs>
-                                <linearGradient id="heroShieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#c62828" />
-                                    <stop offset="100%" style="stop-color:#8b0000" />
-                                </linearGradient>
-                            </defs>
-                            <path d="M50 5 L95 25 L95 55 C95 85 50 115 50 115 C50 115 5 85 5 55 L5 25 Z"
-                                fill="url(#heroShieldGrad)" stroke="#4fc3f7" stroke-width="3" />
-                            <text x="50" y="75" text-anchor="middle" class="hero-shield-s">S</text>
-                        </svg>
+                    <span class="title-shield-container">
+                        <span class="title-shield">
+                            <svg viewBox="0 0 100 120" class="inline-shield">
+                                <defs>
+                                    <linearGradient id="heroShieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ff416c" />
+                                        <stop offset="100%" style="stop-color:#ff4b2b" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M50 5 L95 25 L95 55 C95 85 50 115 50 115 C50 115 5 85 5 55 L5 25 Z"
+                                    fill="url(#heroShieldGrad)" stroke="var(--color-blue-primary)" stroke-width="3" />
+                                <text x="50" y="82" text-anchor="middle" class="hero-shield-s">S</text>
+                            </svg>
+                        </span>
                     </span>
-                </span>
-                <span class="title-line">
                     <span class="char">H</span><span class="char">A</span><span class="char">K</span>
                 </span>
             </h1>
@@ -221,8 +263,8 @@
                     <p class="about-paragraph">
                         The name <strong>Rakshak (रक्षक)</strong> is a Sanskrit name meaning <em>protector, guardian,
                             savior, or defender</em> — someone who rescues or guards others. It's a strong name,
-                        often associated with strength, security, and divine protection in Hinduism, representing
-                        someone who shields people or upholds justice and law (Dharm-rakshak).
+                        often associated with strength, security, and protection, representing
+                        someone who shields people or upholds justice and law.
                     </p>
                     <div class="about-features">
                         <div class="feature-item">
@@ -336,18 +378,25 @@
                         </div>
                         <h3 class="product-title">BIOSTER</h3>
                         <span class="product-category">Hygiene Solutions</span>
+                        <div class="distributor-badge">Authorized Distributor - Telangana</div>
                         <p class="product-desc">
                             Advanced bio-sterilization technology providing clean air,
                             chemical-free, and continuous protection for spaces.
                         </p>
                         <ul class="product-features">
+                            <li><strong>Authorized Distributor - Telangana</strong></li>
                             <li>Clean Air Technology</li>
                             <li>Chemical-Free Protection</li>
                             <li>Continuous Sterilization</li>
                         </ul>
-                        <a href="#contact" class="product-link bioster-link">
-                            Learn More <span>→</span>
-                        </a>
+                        <div class="product-actions">
+                            <a href="BIOSTER-PROIMAGING 010126.pdf" class="product-link bioster-link" target="_blank">
+                                Learn More <span>→</span>
+                            </a>
+                            <button class="video-trigger bioster-video-btn" data-video="bioster-demo.mp4">
+                                <span class="play-icon">▶</span> Watch Demo
+                            </button>
+                        </div>
                     </div>
                     <div class="card-number bioster-num">01</div>
                 </div>
@@ -376,7 +425,8 @@
                             <li>Real-time Problem Solving</li>
                             <li>Innovation Hub</li>
                         </ul>
-                        <a href="#contact" class="product-link edugenie-link">
+                        <a href="Raskshak Edugenie_Schools_Robotics.pdf" class="product-link edugenie-link"
+                            target="_blank">
                             Learn More <span>→</span>
                         </a>
                     </div>
@@ -406,11 +456,58 @@
                             <li>Accessible Solutions</li>
                             <li>Economical Options</li>
                         </ul>
-                        <a href="#contact" class="product-link bluhealth-link">
-                            Learn More <span>→</span>
-                        </a>
+                        <div class="product-actions">
+                            <a href="BCSSL-BluHealth_Slide_Deck[1]_251115_191813.pdf"
+                                class="product-link bluhealth-link" target="_blank">
+                                Learn More <span>→</span>
+                            </a>
+                            <button class="video-trigger bluhealth-video-btn" data-video="bluhealth-demo.mp4">
+                                <span class="play-icon">▶</span> Watch Demo
+                            </button>
+                        </div>
                     </div>
                     <div class="card-number bluhealth-num">03</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Quality & Excellence</span>
+                <h2 class="section-title">Common <span class="highlight">Certifications</span></h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">🏆</div>
+                    <div class="cert-info">
+                        <h4>ISO 9001:2015</h4>
+                        <p>Quality Management System</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🛡️</div>
+                    <div class="cert-info">
+                        <h4>CE Certified</h4>
+                        <p>European Health & Safety Standards</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🤖</div>
+                    <div class="cert-info">
+                        <h4>AI Industry Standard</h4>
+                        <p>Ethical AI Integration Certification</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🌿</div>
+                    <div class="cert-info">
+                        <h4>GreenTech Certified</h4>
+                        <p>Sustainable Technology Excellence</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -453,6 +550,87 @@
         </div>
     </section>
 
+    <!-- Clientele Section -->
+    <section id="clientele" class="clientele">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Global Network</span>
+                <h2 class="section-title">Our <span class="highlight">Trusted Partners</span></h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="client-marquee">
+                <div class="client-track">
+                    <!-- Set 1 -->
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Flipkart</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Google Partner</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">IBM</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">ISO 9001</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Microsoft</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Amazon</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Samsung</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Intel</div>
+                    </div>
+
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Flipkart</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Google Partner</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">IBM</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">ISO 9001</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Microsoft</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Amazon</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Samsung</div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-card-inner">Intel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="video-container">
+                <video id="modalVideo" controls preload="none">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="contact-bg">
@@ -482,7 +660,8 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Headquarters</h4>
-                                <p>Cyber Tower, HITEC City<br>Hyderabad, Telangana 500081</p>
+                                <p>8-2-14/39, Shikara Enclave Lane 3,<br>APSRTC OFFICERS COLONY, Saroor
+                                    Nagar,<br>Hyderabad, Telangana 500079</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -604,7 +783,9 @@
                             <li><a href="#home">Home</a></li>
                             <li><a href="#about">About Us</a></li>
                             <li><a href="#products">Products</a></li>
+                            <li><a href="#certifications">Certifications</a></li>
                             <li><a href="#team">Our Team</a></li>
+                            <li><a href="#clientele">Clientele</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>

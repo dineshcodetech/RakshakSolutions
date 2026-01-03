@@ -2,8 +2,12 @@
    RAKSHAK SOLUTIONS - INTERACTIVE SCRIPTS
    ============================================ */
 
+// Global state
+let loadingProgress = 0;
+
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function () {
+    initCursorGlow();
     initPreloader();
     initNavigation();
     initParticles();
@@ -11,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initScrollAnimations();
     initCounterAnimation();
     initFormHandling();
+    initVideoModal();
 });
 
 /* ============================================
@@ -18,18 +23,43 @@ document.addEventListener('DOMContentLoaded', function () {
    ============================================ */
 function initPreloader() {
     const preloader = document.getElementById('preloader');
+    const progressBar = document.querySelector('.loader-progress');
+    const percentageText = document.querySelector('.loader-percentage');
+    const statusText = document.querySelector('.loader-status');
 
-    window.addEventListener('load', function () {
-        // Increased delay to allow the cinematic animation to complete
+    const statuses = [
+        "INITIALIZING CORE ENGINE",
+        "ESTABLISHING SECURE CONNECTION",
+        "BYPASSING FIREWALLS",
+        "DECRYPTING ASSETS",
+        "SYNCING ATMOSPHERE"
+    ];
+
+    const interval = setInterval(() => {
+        loadingProgress += Math.random() * 2;
+        if (loadingProgress > 100) {
+            loadingProgress = 100;
+            clearInterval(interval);
+            finishLoading();
+        }
+
+        progressBar.style.width = `${loadingProgress}%`;
+        percentageText.textContent = `${Math.floor(loadingProgress)}%`;
+
+        // Update status text randomly
+        if (Math.random() < 0.1) {
+            statusText.textContent = statuses[Math.floor(Math.random() * statuses.length)];
+        }
+    }, 50);
+
+    function finishLoading() {
         setTimeout(() => {
             preloader.classList.add('hidden');
             document.body.style.overflow = 'auto';
             document.body.classList.add('loaded');
-
-            // Start hero animations after preloader
             animateHeroElements();
-        }, 5000);
-    });
+        }, 800);
+    }
 }
 
 function animateHeroElements() {
@@ -343,7 +373,9 @@ function initScrollAnimations() {
         { selector: '.section-header', class: 'reveal' },
         { selector: '.about-visual', class: 'reveal-left' },
         { selector: '.about-text', class: 'reveal-right' },
-        { selector: '.service-card', class: 'reveal' },
+        { selector: '.product-card', class: 'reveal' },
+        { selector: '.cert-card', class: 'reveal' },
+        { selector: '.client-logo-item', class: 'reveal' },
         { selector: '.team-card', class: 'reveal' },
         { selector: '.contact-info', class: 'reveal-left' },
         { selector: '.contact-form-container', class: 'reveal-right' }
@@ -490,49 +522,7 @@ document.addEventListener('mousemove', function (e) {
     }
 });
 
-/* ============================================
-   LENS FLARE EFFECT
-   ============================================ */
-function createLensFlare() {
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
-
-    const flare = document.createElement('div');
-    flare.className = 'lens-flare';
-    flare.style.cssText = `
-        position: absolute;
-        width: 200px;
-        height: 4px;
-        background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.3), rgba(79, 195, 247, 0.8), rgba(79, 195, 247, 0.3), transparent);
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-        animation: flareMove 8s ease-in-out infinite;
-    `;
-
-    hero.appendChild(flare);
-
-    // Add CSS animation dynamically
-    if (!document.querySelector('#flare-style')) {
-        const style = document.createElement('style');
-        style.id = 'flare-style';
-        style.textContent = `
-            @keyframes flareMove {
-                0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(0.5); opacity: 0; }
-                25% { transform: translate(-50%, -50%) rotate(15deg) scale(1); opacity: 1; }
-                50% { transform: translate(-50%, -50%) rotate(-10deg) scale(0.8); opacity: 0.5; }
-                75% { transform: translate(-50%, -50%) rotate(5deg) scale(1.2); opacity: 0.8; }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-}
-
-// Initialize lens flare after page load
-window.addEventListener('load', () => {
-    setTimeout(createLensFlare, 3000);
-});
+// Lens flare removed - migrating focus to reactive cursor follow
 
 /* ============================================
    SMOOTH SCROLL POLYFILL FOR OLDER BROWSERS
@@ -609,3 +599,103 @@ function initTypingEffect() {
 // Call after preloader
 setTimeout(initTypingEffect, 2500);
 
+/* ============================================
+   CURSOR GLOW & FOLLOW LOGIC (CRAZY PREMIUM)
+   ============================================ */
+function initCursorGlow() {
+    const glow = document.getElementById('cursor-glow');
+    const outer = document.getElementById('cursor-outer');
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let glowX = 0;
+    let glowY = 0;
+    let outerX = 0;
+    let outerY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animate() {
+        // Advanced Smooth lerp for glow (organic follow)
+        // We use slightly different friction for X and Y to create a "floating" feel
+        glowX += (mouseX - glowX) * 0.04;
+        glowY += (mouseY - glowY) * 0.04;
+
+        // Intensify based on velocity
+        const dx = mouseX - glowX;
+        const dy = mouseY - glowY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const scale = 1 + Math.min(dist / 500, 0.5);
+
+        glow.style.transform = `translate(calc(-50% + ${glowX}px), calc(-50% + ${glowY}px)) scale(${scale})`;
+        glow.style.opacity = loadingProgress >= 100 ? 1 : 0; // Only show after preloader
+
+        // Faster lerp for outer ring
+        outerX += (mouseX - outerX) * 0.12;
+        outerY += (mouseY - outerY) * 0.12;
+        outer.style.left = `${outerX}px`;
+        outer.style.top = `${outerY}px`;
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Add pointer events for hover states
+    const interactiveElements = document.querySelectorAll('a, button, .product-card, .nav-toggle');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            document.body.classList.add('cursor-hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            document.body.classList.remove('cursor-hover');
+        });
+    });
+}
+/* ============================================
+   VIDEO MODAL LOGIC (PERFORMANCE OPTIMIZED)
+   ============================================ */
+function initVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const triggers = document.querySelectorAll('.video-trigger');
+    const closeBtn = document.querySelector('.modal-close');
+    const overlay = document.querySelector('.modal-overlay');
+    const video = document.getElementById('modalVideo');
+    const videoSource = video.querySelector('source');
+
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', function () {
+            const videoUrl = this.getAttribute('data-video');
+
+            // Set source and load only when requested (Performance)
+            videoSource.src = videoUrl;
+            video.load();
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+
+            // Auto play if possible
+            video.play().catch(e => console.log("Auto-play blocked, waiting for user interaction"));
+        });
+    });
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        video.pause();
+        videoSource.src = ''; // Clear source to free up memory
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+
+    // Escape key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
