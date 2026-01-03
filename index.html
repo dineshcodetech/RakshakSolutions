@@ -1,48 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rakshak Solutions | Your Shield of Protection</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- Preloader -->
+    <!-- Preloader with Smoke and Floating Logo -->
     <div class="preloader" id="preloader">
-        <div class="loader-container">
-            <div class="shield-loader">
-                <svg viewBox="0 0 100 120" class="shield-svg">
-                    <defs>
-                        <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#c62828"/>
-                            <stop offset="100%" style="stop-color:#8b0000"/>
-                        </linearGradient>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                            <feMerge>
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                    </defs>
-                    <path class="shield-path" d="M50 5 L95 25 L95 55 C95 85 50 115 50 115 C50 115 5 85 5 55 L5 25 Z" 
-                          fill="url(#shieldGrad)" stroke="#4fc3f7" stroke-width="3" filter="url(#glow)"/>
-                    <text x="50" y="75" text-anchor="middle" class="shield-s">S</text>
-                </svg>
+        <div class="splash-container">
+            <div class="smoke-wrap">
+                <img src="smoke.png" alt="Smoke Background" class="smoke-image">
             </div>
-            <div class="loader-text">INITIALIZING PROTECTION</div>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
+            <div class="logo-wrap">
+                <img src="logo.png" alt="Rakshak Logo" class="floating-logo">
+            </div>
+            <div class="loader-content">
+                <div class="loader-text">INITIALIZING PROTECTION</div>
+                <div class="loader-bar">
+                    <div class="loader-progress"></div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Particle Canvas -->
     <canvas id="particles"></canvas>
-    
+
     <!-- Smoke Effect Canvas -->
     <canvas id="smoke"></canvas>
 
@@ -62,7 +54,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About Us</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
                 <li><a href="#team" class="nav-link">Our Team</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -79,7 +71,7 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="badge-dot"></span>
-                TRUSTED SECURITY PARTNER
+                SUSTAINABLE SOLUTIONS FOR A BETTER FUTURE
             </div>
             <h1 class="hero-title">
                 <span class="title-line">
@@ -90,12 +82,12 @@
                         <svg viewBox="0 0 100 120" class="inline-shield">
                             <defs>
                                 <linearGradient id="heroShieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#c62828"/>
-                                    <stop offset="100%" style="stop-color:#8b0000"/>
+                                    <stop offset="0%" style="stop-color:#c62828" />
+                                    <stop offset="100%" style="stop-color:#8b0000" />
                                 </linearGradient>
                             </defs>
-                            <path d="M50 5 L95 25 L95 55 C95 85 50 115 50 115 C50 115 5 85 5 55 L5 25 Z" 
-                                  fill="url(#heroShieldGrad)" stroke="#4fc3f7" stroke-width="3"/>
+                            <path d="M50 5 L95 25 L95 55 C95 85 50 115 50 115 C50 115 5 85 5 55 L5 25 Z"
+                                fill="url(#heroShieldGrad)" stroke="#4fc3f7" stroke-width="3" />
                             <text x="50" y="75" text-anchor="middle" class="hero-shield-s">S</text>
                         </svg>
                     </span>
@@ -105,23 +97,23 @@
                 </span>
             </h1>
             <p class="hero-tagline">
-                <span class="tagline-word">PROTECTING</span>
+                <span class="tagline-word">HYGIENE</span>
                 <span class="tagline-divider">|</span>
-                <span class="tagline-word">SECURING</span>
+                <span class="tagline-word">HEALTHCARE</span>
                 <span class="tagline-divider">|</span>
-                <span class="tagline-word">DEFENDING</span>
+                <span class="tagline-word">EDUCATION</span>
             </p>
             <p class="hero-description">
-                Advanced security solutions that shield your assets, protect your people, 
-                and defend your future with uncompromising excellence.
+                Sustainable and niche technologies integrating AI, IoT, and Robotics
+                to provide clean air, chemical-free protection, and accessible healthcare for every citizen.
             </p>
             <div class="hero-cta">
-                <a href="#services" class="btn btn-primary">
-                    <span class="btn-text">Explore Services</span>
+                <a href="#products" class="btn btn-primary">
+                    <span class="btn-text">Our Products</span>
                     <span class="btn-icon">→</span>
                 </a>
                 <a href="#contact" class="btn btn-secondary">
-                    <span class="btn-text">Get Protected</span>
+                    <span class="btn-text">Get in Touch</span>
                 </a>
             </div>
         </div>
@@ -152,6 +144,40 @@
         </div>
     </section>
 
+    <!-- Extreme Urbanization Section -->
+    <section id="urbanization" class="urbanization">
+        <div class="section-container">
+            <div class="urban-grid">
+                <div class="urban-content">
+                    <span class="section-tag">Global Challenge</span>
+                    <h2 class="urban-title">Extreme <span class="highlight">Urbanization</span></h2>
+                    <div class="title-underline left"></div>
+                    <p class="urban-main-text">
+                        <strong>2 billion people</strong> will move to cities by 2050.
+                        This will increase the demand and requirements for energy,
+                        built infrastructure and a supporting ecosystem.
+                    </p>
+                    <div class="urban-quote">
+                        <p>
+                            Clean air, drinking water, and healthy living environments are not
+                            guaranteed without sustainable actions today.
+                        </p>
+                    </div>
+                </div>
+                <div class="urban-mission">
+                    <div class="mission-box">
+                        <div class="mission-icon">🌍</div>
+                        <p class="mission-desc">
+                            We aim to create <strong>sustainable cities and communities</strong> by
+                            leveraging technology and innovation, generating a scalable positive impact
+                            for a regenerative and healthy planet and healthy human life.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="section-container">
@@ -169,17 +195,7 @@
                             <div class="frame-corner bottom-left"></div>
                             <div class="frame-corner bottom-right"></div>
                             <div class="about-shield-display">
-                                <svg viewBox="0 0 100 120" class="about-shield-svg">
-                                    <defs>
-                                        <linearGradient id="aboutShieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#c62828"/>
-                                            <stop offset="100%" style="stop-color:#8b0000"/>
-                                        </linearGradient>
-                                    </defs>
-                                    <path d="M50 5 L95 25 L95 55 C95 85 50 115 50 115 C50 115 5 85 5 55 L5 25 Z" 
-                                          fill="url(#aboutShieldGrad)" stroke="#4fc3f7" stroke-width="2"/>
-                                    <text x="50" y="75" text-anchor="middle" class="about-shield-s">S</text>
-                                </svg>
+                                <img src="logo.png" alt="Rakshak Logo" class="about-logo-img">
                                 <div class="shield-pulse"></div>
                                 <div class="shield-pulse delay-1"></div>
                                 <div class="shield-pulse delay-2"></div>
@@ -187,63 +203,63 @@
                         </div>
                     </div>
                     <div class="floating-badge badge-1">
-                        <span class="badge-icon">🛡️</span>
-                        <span>ISO Certified</span>
+                        <span class="badge-icon">🌿</span>
+                        <span>Eco-Centric</span>
                     </div>
                     <div class="floating-badge badge-2">
-                        <span class="badge-icon">⚡</span>
-                        <span>24/7 Response</span>
+                        <span class="badge-icon">🔬</span>
+                        <span>Tech Driven</span>
                     </div>
                 </div>
                 <div class="about-text">
-                    <h3 class="about-subtitle">Your Trusted Guardian in an Uncertain World</h3>
+                    <h3 class="about-subtitle">Young Enthusiasts Building a Sustainable Future</h3>
                     <p class="about-paragraph">
-                        <span class="first-letter">R</span>akshak Solutions stands as the vanguard of modern security. 
-                        Born from a vision to revolutionize protection services, we've grown into a formidable 
-                        force that safeguards businesses, assets, and lives across the nation.
+                        <span class="first-letter">W</span>e are a team of young enthusiasts who strongly believe
+                        Sustainability is the only way for a Sustainable future and planet. We are transitioning
+                        from being Human-centric to ECO-centric in our approach and solutions.
                     </p>
                     <p class="about-paragraph">
-                        Our name, derived from the Sanskrit word for "Protector," embodies our unwavering 
-                        commitment to becoming the shield that stands between our clients and any threat. 
-                        We combine cutting-edge technology with battle-tested expertise to deliver security 
-                        solutions that adapt, evolve, and overcome.
+                        The name <strong>Rakshak (रक्षक)</strong> is a Sanskrit name meaning <em>protector, guardian,
+                            savior, or defender</em> — someone who rescues or guards others. It's a strong name,
+                        often associated with strength, security, and divine protection in Hinduism, representing
+                        someone who shields people or upholds justice and law (Dharm-rakshak).
                     </p>
                     <div class="about-features">
                         <div class="feature-item">
                             <div class="feature-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                                 </svg>
                             </div>
                             <div class="feature-content">
-                                <h4>Impenetrable Defense</h4>
-                                <p>Multi-layered security protocols</p>
+                                <h4>AI & IoT Integration</h4>
+                                <p>Latest evolving technologies</p>
                             </div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M12 6v6l4 2"/>
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
                                 </svg>
                             </div>
                             <div class="feature-content">
-                                <h4>Rapid Response</h4>
-                                <p>Under 5-minute deployment</p>
+                                <h4>Sustainable Solutions</h4>
+                                <p>Eco-friendly innovations</p>
                             </div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                                 </svg>
                             </div>
                             <div class="feature-content">
-                                <h4>Elite Personnel</h4>
-                                <p>Ex-military & law enforcement</p>
+                                <h4>Robotics Excellence</h4>
+                                <p>Cutting-edge automation</p>
                             </div>
                         </div>
                     </div>
@@ -252,187 +268,149 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- Mission & Vision Section -->
+    <section id="mission" class="mission-vision">
+        <div class="section-container">
+            <div class="mv-grid">
+                <div class="mv-card mission-card">
+                    <div class="mv-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" />
+                            <path d="M32 16v16l12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            <circle cx="32" cy="32" r="4" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3 class="mv-title">Our Mission</h3>
+                    <p class="mv-text">
+                        To provide Sustainable and niche technologies or solutions in the segment of
+                        <strong>Hygiene, Healthcare, and Education</strong> — integrating with the latest
+                        evolving technologies like <em>AI, IoT, and Robotics</em>.
+                    </p>
+                </div>
+                <div class="mv-card vision-card">
+                    <div class="mv-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <path d="M32 8c-16 0-28 24-28 24s12 24 28 24 28-24 28-24-12-24-28-24z" stroke="currentColor"
+                                stroke-width="2" />
+                            <circle cx="32" cy="32" r="10" stroke="currentColor" stroke-width="2" />
+                            <circle cx="32" cy="32" r="4" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3 class="mv-title">Our Vision</h3>
+                    <p class="mv-text">
+                        To provide <strong>Clean Air, Chemical-free, Continuous protection</strong> to every citizen.
+                        To deliver economical and accessible preventive healthcare solutions.
+                        To enable every student at academia level to connect and collaborate with the Industry
+                        to address real-time problems and derive innovative solutions in all disciplines of
+                        Science and Technology.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="services">
         <div class="services-bg">
             <div class="grid-overlay"></div>
         </div>
         <div class="section-container">
             <div class="section-header">
                 <span class="section-tag">What We Offer</span>
-                <h2 class="section-title">Our <span class="highlight">Services</span></h2>
+                <h2 class="section-title">Our <span class="highlight">Products</span></h2>
                 <div class="title-underline"></div>
             </div>
-            <div class="services-grid">
-                <div class="service-card" data-service="1">
-                    <div class="card-glow"></div>
+            <div class="products-grid">
+                <!-- BIOSTER -->
+                <div class="product-card bioster" data-product="1">
+                    <div class="card-glow bioster-glow"></div>
                     <div class="card-content">
-                        <div class="service-icon">
+                        <div class="product-icon bioster-icon">
                             <svg viewBox="0 0 64 64" fill="none">
-                                <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2"/>
-                                <path d="M32 8v24l16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="32" cy="32" r="4" fill="currentColor"/>
+                                <path d="M32 4C18 4 8 20 8 32c0 16 24 28 24 28s24-12 24-28c0-12-10-28-24-28z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <circle cx="32" cy="28" r="8" stroke="currentColor" stroke-width="2" />
+                                <path d="M32 36v12" stroke="currentColor" stroke-width="2" />
+                                <path d="M24 44h16" stroke="currentColor" stroke-width="2" />
                             </svg>
                         </div>
-                        <h3 class="service-title">24/7 Surveillance</h3>
-                        <p class="service-desc">
-                            Round-the-clock monitoring with AI-powered threat detection, 
-                            thermal imaging, and real-time alert systems.
+                        <h3 class="product-title">BIOSTER</h3>
+                        <span class="product-category">Hygiene Solutions</span>
+                        <p class="product-desc">
+                            Advanced bio-sterilization technology providing clean air,
+                            chemical-free, and continuous protection for spaces.
                         </p>
-                        <ul class="service-features">
-                            <li>AI Threat Detection</li>
-                            <li>Thermal Imaging</li>
-                            <li>Real-time Alerts</li>
+                        <ul class="product-features">
+                            <li>Clean Air Technology</li>
+                            <li>Chemical-Free Protection</li>
+                            <li>Continuous Sterilization</li>
                         </ul>
-                        <a href="#contact" class="service-link">
+                        <a href="#contact" class="product-link bioster-link">
                             Learn More <span>→</span>
                         </a>
                     </div>
-                    <div class="card-number">01</div>
+                    <div class="card-number bioster-num">01</div>
                 </div>
 
-                <div class="service-card" data-service="2">
-                    <div class="card-glow"></div>
+                <!-- EDUGENIE -->
+                <div class="product-card edugenie" data-product="2">
+                    <div class="card-glow edugenie-glow"></div>
                     <div class="card-content">
-                        <div class="service-icon">
+                        <div class="product-icon edugenie-icon">
                             <svg viewBox="0 0 64 64" fill="none">
-                                <path d="M32 4L56 16v16c0 16-24 28-24 28S8 48 8 32V16L32 4z" 
-                                      stroke="currentColor" stroke-width="2"/>
-                                <path d="M24 32l6 6 12-12" stroke="currentColor" stroke-width="2" 
-                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 24l24-12 24 12-24 12-24-12z" stroke="currentColor" stroke-width="2" />
+                                <path d="M16 28v16c0 4 7.2 8 16 8s16-4 16-8V28" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M56 24v20" stroke="currentColor" stroke-width="2" />
+                                <circle cx="56" cy="48" r="4" stroke="currentColor" stroke-width="2" />
                             </svg>
                         </div>
-                        <h3 class="service-title">Executive Protection</h3>
-                        <p class="service-desc">
-                            Discreet, professional close protection for executives, 
-                            dignitaries, and high-profile individuals.
+                        <h3 class="product-title">EDUGENIE</h3>
+                        <span class="product-category">Education Platform</span>
+                        <p class="product-desc">
+                            Enabling students at academia level to connect and collaborate
+                            with Industry to address real-time problems and derive innovative solutions.
                         </p>
-                        <ul class="service-features">
-                            <li>Close Protection Officers</li>
-                            <li>Secure Transportation</li>
-                            <li>Threat Assessment</li>
+                        <ul class="product-features">
+                            <li>Industry-Academia Connect</li>
+                            <li>Real-time Problem Solving</li>
+                            <li>Innovation Hub</li>
                         </ul>
-                        <a href="#contact" class="service-link">
+                        <a href="#contact" class="product-link edugenie-link">
                             Learn More <span>→</span>
                         </a>
                     </div>
-                    <div class="card-number">02</div>
+                    <div class="card-number edugenie-num">02</div>
                 </div>
 
-                <div class="service-card" data-service="3">
-                    <div class="card-glow"></div>
+                <!-- BLUHEALTH -->
+                <div class="product-card bluhealth" data-product="3">
+                    <div class="card-glow bluhealth-glow"></div>
                     <div class="card-content">
-                        <div class="service-icon">
+                        <div class="product-icon bluhealth-icon">
                             <svg viewBox="0 0 64 64" fill="none">
-                                <rect x="8" y="20" width="48" height="36" rx="4" 
-                                      stroke="currentColor" stroke-width="2"/>
-                                <path d="M20 20V14a12 12 0 1 1 24 0v6" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="32" cy="38" r="6" stroke="currentColor" stroke-width="2"/>
-                                <path d="M32 44v6" stroke="currentColor" stroke-width="2"/>
+                                <path d="M32 8c-8 0-16 8-16 16 0 12 16 32 16 32s16-20 16-32c0-8-8-16-16-16z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M24 24h16M32 16v16" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
                             </svg>
                         </div>
-                        <h3 class="service-title">Cyber Security</h3>
-                        <p class="service-desc">
-                            Comprehensive digital protection including penetration testing, 
-                            threat monitoring, and incident response.
+                        <h3 class="product-title">BLUHEALTH</h3>
+                        <span class="product-category">Healthcare Solutions</span>
+                        <p class="product-desc">
+                            Economical and accessible preventive healthcare solutions
+                            for every citizen of the country.
                         </p>
-                        <ul class="service-features">
-                            <li>Penetration Testing</li>
-                            <li>Network Security</li>
-                            <li>Incident Response</li>
+                        <ul class="product-features">
+                            <li>Preventive Healthcare</li>
+                            <li>Accessible Solutions</li>
+                            <li>Economical Options</li>
                         </ul>
-                        <a href="#contact" class="service-link">
+                        <a href="#contact" class="product-link bluhealth-link">
                             Learn More <span>→</span>
                         </a>
                     </div>
-                    <div class="card-number">03</div>
-                </div>
-
-                <div class="service-card" data-service="4">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 64 64" fill="none">
-                                <rect x="4" y="8" width="56" height="40" rx="4" 
-                                      stroke="currentColor" stroke-width="2"/>
-                                <circle cx="20" cy="28" r="8" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="44" cy="28" r="8" stroke="currentColor" stroke-width="2"/>
-                                <path d="M4 52h56" stroke="currentColor" stroke-width="2"/>
-                                <path d="M24 52l4 8h8l4-8" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Event Security</h3>
-                        <p class="service-desc">
-                            Comprehensive event protection from planning to execution, 
-                            ensuring seamless and secure gatherings.
-                        </p>
-                        <ul class="service-features">
-                            <li>Crowd Management</li>
-                            <li>Access Control</li>
-                            <li>Emergency Response</li>
-                        </ul>
-                        <a href="#contact" class="service-link">
-                            Learn More <span>→</span>
-                        </a>
-                    </div>
-                    <div class="card-number">04</div>
-                </div>
-
-                <div class="service-card" data-service="5">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 64 64" fill="none">
-                                <path d="M32 4v56M4 32h56" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="32" cy="32" r="24" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="32" cy="32" r="12" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="32" cy="32" r="4" fill="currentColor"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Risk Assessment</h3>
-                        <p class="service-desc">
-                            Thorough vulnerability analysis and strategic risk mitigation 
-                            planning for your organization.
-                        </p>
-                        <ul class="service-features">
-                            <li>Vulnerability Analysis</li>
-                            <li>Threat Modeling</li>
-                            <li>Mitigation Strategy</li>
-                        </ul>
-                        <a href="#contact" class="service-link">
-                            Learn More <span>→</span>
-                        </a>
-                    </div>
-                    <div class="card-number">05</div>
-                </div>
-
-                <div class="service-card" data-service="6">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 64 64" fill="none">
-                                <path d="M8 56l16-24 12 16 12-32 8 20" stroke="currentColor" 
-                                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="24" cy="32" r="4" fill="currentColor"/>
-                                <circle cx="36" cy="24" r="4" fill="currentColor"/>
-                                <circle cx="48" cy="12" r="4" fill="currentColor"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Security Consulting</h3>
-                        <p class="service-desc">
-                            Expert guidance on security infrastructure, policy development, 
-                            and compliance requirements.
-                        </p>
-                        <ul class="service-features">
-                            <li>Policy Development</li>
-                            <li>Compliance Audit</li>
-                            <li>Training Programs</li>
-                        </ul>
-                        <a href="#contact" class="service-link">
-                            Learn More <span>→</span>
-                        </a>
-                    </div>
-                    <div class="card-number">06</div>
+                    <div class="card-number bluhealth-num">03</div>
                 </div>
             </div>
         </div>
@@ -442,133 +420,34 @@
     <section id="team" class="team">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag">The Guardians</span>
+                <span class="section-tag">The Innovators</span>
                 <h2 class="section-title">Our <span class="highlight">Team</span></h2>
                 <div class="title-underline"></div>
             </div>
             <p class="team-intro">
-                Elite professionals with decades of combined experience in military, 
-                law enforcement, and private security sectors.
+                Young enthusiasts with passion for sustainability, innovation, and creating
+                a better future through technology and eco-centric solutions.
             </p>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="card-inner">
-                        <div class="team-image">
-                            <div class="image-placeholder">
-                                <svg viewBox="0 0 64 64" fill="none">
-                                    <circle cx="32" cy="24" r="12" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M12 56c0-11 9-20 20-20s20 9 20 20" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div class="image-overlay">
-                                <div class="social-links">
-                                    <a href="#" class="social-link">in</a>
-                                    <a href="#" class="social-link">✉</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Col. Arjun Sharma (Retd.)</h3>
-                            <span class="team-role">Founder & CEO</span>
-                            <p class="team-bio">
-                                30 years of distinguished military service. 
-                                Former Special Forces commander with expertise in strategic operations.
-                            </p>
-                        </div>
-                        <div class="team-badge">
-                            <span>★</span> Leadership
-                        </div>
-                    </div>
+            <div class="team-values">
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h4>Sustainability First</h4>
+                    <p>We believe sustainability is the only way for a sustainable future and planet.</p>
                 </div>
-
-                <div class="team-card">
-                    <div class="card-inner">
-                        <div class="team-image">
-                            <div class="image-placeholder">
-                                <svg viewBox="0 0 64 64" fill="none">
-                                    <circle cx="32" cy="24" r="12" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M12 56c0-11 9-20 20-20s20 9 20 20" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div class="image-overlay">
-                                <div class="social-links">
-                                    <a href="#" class="social-link">in</a>
-                                    <a href="#" class="social-link">✉</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Priya Krishnan</h3>
-                            <span class="team-role">Director of Operations</span>
-                            <p class="team-bio">
-                                15 years in security management. 
-                                Expert in operational logistics and crisis management.
-                            </p>
-                        </div>
-                        <div class="team-badge">
-                            <span>⚡</span> Operations
-                        </div>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h4>Eco-Centric</h4>
+                    <p>Transitioning from Human-centric to ECO-centric in our approach.</p>
                 </div>
-
-                <div class="team-card">
-                    <div class="card-inner">
-                        <div class="team-image">
-                            <div class="image-placeholder">
-                                <svg viewBox="0 0 64 64" fill="none">
-                                    <circle cx="32" cy="24" r="12" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M12 56c0-11 9-20 20-20s20 9 20 20" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div class="image-overlay">
-                                <div class="social-links">
-                                    <a href="#" class="social-link">in</a>
-                                    <a href="#" class="social-link">✉</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Vikram Malhotra</h3>
-                            <span class="team-role">Head of Cyber Security</span>
-                            <p class="team-bio">
-                                Former government cyber analyst. 
-                                Certified ethical hacker with deep expertise in threat intelligence.
-                            </p>
-                        </div>
-                        <div class="team-badge">
-                            <span>🔐</span> Cyber
-                        </div>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h4>Innovation Driven</h4>
+                    <p>Leveraging AI, IoT, and Robotics for innovative solutions.</p>
                 </div>
-
-                <div class="team-card">
-                    <div class="card-inner">
-                        <div class="team-image">
-                            <div class="image-placeholder">
-                                <svg viewBox="0 0 64 64" fill="none">
-                                    <circle cx="32" cy="24" r="12" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M12 56c0-11 9-20 20-20s20 9 20 20" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div class="image-overlay">
-                                <div class="social-links">
-                                    <a href="#" class="social-link">in</a>
-                                    <a href="#" class="social-link">✉</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Meera Reddy</h3>
-                            <span class="team-role">Client Relations Director</span>
-                            <p class="team-bio">
-                                12 years in corporate security consulting. 
-                                Expert in tailoring security solutions for diverse client needs.
-                            </p>
-                        </div>
-                        <div class="team-badge">
-                            <span>🤝</span> Relations
-                        </div>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h4>Collaborative</h4>
+                    <p>Bridging gaps between academia and industry for real solutions.</p>
                 </div>
             </div>
         </div>
@@ -589,16 +468,16 @@
                 <div class="contact-info">
                     <h3 class="contact-subtitle">Ready to Secure Your Future?</h3>
                     <p class="contact-description">
-                        Take the first step towards comprehensive protection. 
-                        Our security experts are standing by to assess your needs 
+                        Take the first step towards comprehensive protection.
+                        Our security experts are standing by to assess your needs
                         and craft a tailored defense strategy.
                     </p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
                                 </svg>
                             </div>
                             <div class="contact-text">
@@ -609,7 +488,8 @@
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                                 </svg>
                             </div>
                             <div class="contact-text">
@@ -620,8 +500,9 @@
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                    <polyline points="22,6 12,13 2,6"/>
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
                                 </svg>
                             </div>
                             <div class="contact-text">
@@ -682,15 +563,15 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Your Message</label>
-                            <textarea id="message" name="message" rows="4" 
-                                      placeholder="Tell us about your security needs..."></textarea>
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="Tell us about your security needs..."></textarea>
                             <span class="input-focus"></span>
                         </div>
                         <button type="submit" class="form-submit">
                             <span class="btn-text">Send Secure Message</span>
                             <span class="btn-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
                                 </svg>
                             </span>
                         </button>
@@ -710,10 +591,10 @@
                         <span class="logo-shield">S</span>
                         <span class="logo-text">HAK</span>
                     </div>
-                    <p class="footer-tagline">Your Shield of Protection</p>
+                    <p class="footer-tagline">Sustainable Solutions for a Better Future</p>
                     <p class="footer-description">
-                        Protecting what matters most with unwavering dedication 
-                        and cutting-edge security solutions.
+                        Young enthusiasts building eco-centric solutions in
+                        Hygiene, Healthcare, and Education through AI, IoT & Robotics.
                     </p>
                 </div>
                 <div class="footer-links">
@@ -722,19 +603,17 @@
                         <ul>
                             <li><a href="#home">Home</a></li>
                             <li><a href="#about">About Us</a></li>
-                            <li><a href="#services">Services</a></li>
+                            <li><a href="#products">Products</a></li>
                             <li><a href="#team">Our Team</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
-                        <h4>Services</h4>
+                        <h4>Products</h4>
                         <ul>
-                            <li><a href="#services">Surveillance</a></li>
-                            <li><a href="#services">Executive Protection</a></li>
-                            <li><a href="#services">Cyber Security</a></li>
-                            <li><a href="#services">Event Security</a></li>
-                            <li><a href="#services">Risk Assessment</a></li>
+                            <li><a href="#products">BIOSTER - Hygiene</a></li>
+                            <li><a href="#products">EDUGENIE - Education</a></li>
+                            <li><a href="#products">BLUHEALTH - Healthcare</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -755,17 +634,20 @@
                 <div class="footer-social">
                     <a href="#" class="social-icon" aria-label="LinkedIn">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
                     </a>
                     <a href="#" class="social-icon" aria-label="Twitter">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                         </svg>
                     </a>
                     <a href="#" class="social-icon" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
                         </svg>
                     </a>
                 </div>
@@ -775,5 +657,5 @@
 
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>
