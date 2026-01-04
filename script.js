@@ -11,11 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
     initPreloader();
     initNavigation();
     initParticles();
-    initSmokeEffect();
+    // initSmokeEffect(); Removed center blue lighting
     initScrollAnimations();
     initCounterAnimation();
     initFormHandling();
     initVideoModal();
+    initFlowerDiagram();
 });
 
 /* ============================================
@@ -23,9 +24,27 @@ document.addEventListener('DOMContentLoaded', function () {
    ============================================ */
 function initPreloader() {
     const preloader = document.getElementById('preloader');
+    if (!preloader) {
+        // We are on a subpage (like bioster.html), so we set the skip flag
+        // for when the user navigates back to the home page.
+        sessionStorage.setItem('skipPreloader', 'true');
+        return;
+    }
+
     const progressBar = document.querySelector('.loader-progress');
     const percentageText = document.querySelector('.loader-percentage');
     const statusText = document.querySelector('.loader-status');
+
+    // Skip preloader ONLY if the flag is set (coming from a subpage)
+    if (sessionStorage.getItem('skipPreloader')) {
+        sessionStorage.removeItem('skipPreloader'); // Clear it so refresh shows preloader again
+        preloader.style.display = 'none';
+        preloader.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        document.body.classList.add('loaded');
+        animateHeroElements();
+        return;
+    }
 
     const statuses = [
         "INITIALIZING CORE ENGINE",
@@ -36,21 +55,21 @@ function initPreloader() {
     ];
 
     const interval = setInterval(() => {
-        loadingProgress += Math.random() * 2;
+        loadingProgress += Math.random() * 3; // Slightly faster for better UX
         if (loadingProgress > 100) {
             loadingProgress = 100;
             clearInterval(interval);
             finishLoading();
         }
 
-        progressBar.style.width = `${loadingProgress}%`;
-        percentageText.textContent = `${Math.floor(loadingProgress)}%`;
+        if (progressBar) progressBar.style.width = `${loadingProgress}%`;
+        if (percentageText) percentageText.textContent = `${Math.floor(loadingProgress)}%`;
 
         // Update status text randomly
-        if (Math.random() < 0.1) {
+        if (statusText && Math.random() < 0.1) {
             statusText.textContent = statuses[Math.floor(Math.random() * statuses.length)];
         }
-    }, 50);
+    }, 40);
 
     function finishLoading() {
         setTimeout(() => {
@@ -58,13 +77,33 @@ function initPreloader() {
             document.body.style.overflow = 'auto';
             document.body.classList.add('loaded');
             animateHeroElements();
+            // Completely remove from DOM after fade out to ensure no interaction issues
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
         }, 800);
     }
 }
 
 function animateHeroElements() {
-    // Elements will animate via CSS with animation-delay
-    // This function can trigger additional JS animations if needed
+    // Smooth scroll to hash if present after preloader
+    handleInitialHash();
+}
+
+function handleInitialHash() {
+    if (window.location.hash) {
+        const targetId = window.location.hash;
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            setTimeout(() => {
+                const offsetTop = targetSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+    }
 }
 
 /* ============================================
@@ -92,10 +131,12 @@ function initNavigation() {
     });
 
     // Mobile toggle
-    navToggle.addEventListener('click', function () {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    if (navToggle) {
+        navToggle.addEventListener('click', function () {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
 
     // Active link on scroll
     const sections = document.querySelectorAll('section[id]');
@@ -115,7 +156,8 @@ function initNavigation() {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
+            const href = link.getAttribute('href');
+            if (href === `#${current}` || href === `index.html#${current}`) {
                 link.classList.add('active');
             }
         });
@@ -124,24 +166,28 @@ function initNavigation() {
     // Smooth scroll & close mobile menu
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+            const href = this.getAttribute('href');
 
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            // Only prevent default if it's an internal hash on the CURRENT page
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(href);
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close mobile menu
+                if (navToggle) navToggle.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
             }
-
-            // Close mobile menu
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
         });
     });
 }
+
 
 /* ============================================
    PARTICLE SYSTEM
@@ -469,8 +515,21 @@ function initFormHandling() {
             submitBtn.disabled = true;
 
             setTimeout(() => {
-                submitBtn.querySelector('.btn-text').textContent = 'Message Sent!';
-                submitBtn.style.background = 'linear-gradient(135deg, #4caf50 0%, #2e7d32 100%)';
+                // Construct WhatsApp Message
+                const message = `*New Consultation Request*%0A%0A` +
+                    `*Name:* ${data.firstName} ${data.lastName}%0A` +
+                    `*Email:* ${data.email}%0A` +
+                    `*Phone:* ${data.phone || 'Not provided'}%0A` +
+                    `*Service:* ${data.service}%0A` +
+                    `*Message:* ${data.message || 'No message'}`;
+
+                const whatsappUrl = `https://wa.me/918886234101?text=${message}`;
+
+                submitBtn.querySelector('.btn-text').textContent = 'Redirecting to WhatsApp...';
+                submitBtn.style.background = 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)';
+
+                // Open WhatsApp in a new tab
+                window.open(whatsappUrl, '_blank');
 
                 // Reset form
                 form.reset();
@@ -480,7 +539,7 @@ function initFormHandling() {
                     submitBtn.style.background = '';
                     submitBtn.disabled = false;
                 }, 3000);
-            }, 1500);
+            }, 1000);
         });
 
         // Input focus animations
@@ -510,11 +569,7 @@ document.addEventListener('mousemove', function (e) {
     const x = (e.clientX / window.innerWidth - 0.5) * 20;
     const y = (e.clientY / window.innerHeight - 0.5) * 20;
 
-    const rings = document.querySelectorAll('.energy-ring');
-    rings.forEach((ring, index) => {
-        const factor = (index + 1) * 0.3;
-        ring.style.transform = `translate(calc(-50% + ${x * factor}px), calc(-50% + ${y * factor}px))`;
-    });
+
 
     const shield = document.querySelector('.inline-shield');
     if (shield) {
@@ -697,5 +752,88 @@ function initVideoModal() {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
         }
+    });
+}
+/* ============================================
+   BIOSTER FLOWER DIAGRAM INTERACTION
+   ============================================ */
+function initFlowerDiagram() {
+    const diagram = document.getElementById('flower-diagram');
+    if (!diagram) return;
+
+    const petals = diagram.querySelectorAll('.petal');
+    const label = document.getElementById('petal-label');
+    const cards = document.querySelectorAll('.app-item');
+
+    // Petal Interaction
+    petals.forEach(petal => {
+        petal.addEventListener('mouseenter', function () {
+            const targetId = this.getAttribute('data-target');
+            const labelText = this.getAttribute('data-label');
+            const targetCard = document.getElementById(targetId);
+
+            if (targetCard) targetCard.classList.add('highlight-active');
+            if (label) {
+                label.textContent = labelText;
+                label.classList.add('active');
+            }
+        });
+
+        petal.addEventListener('mouseleave', function () {
+            const targetId = this.getAttribute('data-target');
+            const targetCard = document.getElementById(targetId);
+
+            if (targetCard) targetCard.classList.remove('highlight-active');
+            if (label && !diagram.querySelector('.petal-persistent')) {
+                label.classList.remove('active');
+            }
+        });
+
+        petal.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-target');
+            const targetCard = document.getElementById(targetId);
+
+            // Clear previous persistent states
+            cards.forEach(c => c.classList.remove('highlight-persistent'));
+            petals.forEach(p => p.classList.remove('petal-persistent'));
+
+            // Set new persistent state
+            if (targetCard) {
+                targetCard.classList.add('highlight-persistent');
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Add a temporary focal pulse
+                targetCard.style.animation = 'none';
+                targetCard.offsetHeight; // trigger reflow
+                targetCard.style.animation = 'cardFocalPulse 1s ease-out';
+            }
+            this.classList.add('petal-persistent');
+        });
+    });
+
+    // Card Interaction
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            const cardId = this.getAttribute('id');
+            const targetPetal = document.querySelector(`.petal[data-target="${cardId}"]`);
+            if (targetPetal) targetPetal.classList.add('petal-highlight');
+        });
+
+        card.addEventListener('mouseleave', function () {
+            const cardId = this.getAttribute('id');
+            const targetPetal = document.querySelector(`.petal[data-target="${cardId}"]`);
+            if (targetPetal) targetPetal.classList.remove('petal-highlight');
+        });
+
+        card.addEventListener('click', function () {
+            const cardId = this.getAttribute('id');
+            const targetPetal = document.querySelector(`.petal[data-target="${cardId}"]`);
+
+            cards.forEach(c => c.classList.remove('highlight-persistent'));
+            petals.forEach(p => p.classList.remove('petal-persistent'));
+
+            this.classList.add('highlight-persistent');
+            if (targetPetal) targetPetal.classList.add('petal-persistent');
+        });
     });
 }

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOSTER | Rakshak Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bioster-page">
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="banner-track">
+            <div class="banner-item">
+                <span class="banner-icon">📢</span>
+                OFFICIAL ANNOUNCEMENT: <span class="highlight-text">RAKSHAK SOLUTIONS</span> IS NOW THE <span
+                    class="highlight-text">AUTHORIZED DISTRIBUTOR</span> FOR <span class="highlight-text">BIOSTER</span>
+                IN <span class="highlight-text">TELANGANA</span>!
+            </div>
+            <!-- Repeat items for continuous scroll -->
+            <div class="banner-item">
+                <span class="banner-icon">📢</span>
+                OFFICIAL ANNOUNCEMENT: <span class="highlight-text">RAKSHAK SOLUTIONS</span> IS NOW THE <span
+                    class="highlight-text">AUTHORIZED DISTRIBUTOR</span> FOR <span class="highlight-text">BIOSTER</span>
+                IN <span class="highlight-text">TELANGANA</span>!
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" style="top: 40px;">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo">
+                <span class="logo-text">RAK</span>
+                <span class="logo-shield-container">
+                    <svg viewBox="0 0 100 120" class="nav-shield-svg">
+                        <defs>
+                            <linearGradient id="navShieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff416c" />
+                                <stop offset="100%" style="stop-color:#ff4b2b" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M50 5 L95 25 L95 55 C95 85 50 115 50 115 C50 115 5 85 5 55 L5 25 Z"
+                            fill="url(#navShieldGrad)" stroke="var(--color-blue-primary)" stroke-width="3" />
+                        <text x="50" y="82" text-anchor="middle" class="nav-shield-s">S</text>
+                    </svg>
+                </span>
+                <span class="logo-text">HAK</span>
+            </a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#products" class="nav-link active">Products</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="product-hero">
+            <h1 class="product-hero-title">BIOSTER</h1>
+            <p class="hero-description" style="max-width: 800px; margin: 0 auto;">
+                The Ultimate Bio-Sterilization Solution for a Chemical-Free Environment.
+            </p>
+        </section>
+
+        <section class="applications-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">Versatile Solutions</span>
+                    <h2 class="section-title">Applications <span class="highlight">Across Industries</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="apps-container">
+                    <!-- Left Column -->
+                    <div class="apps-column">
+                        <div class="app-item reveal-on-scroll" id="app-healthcare">
+                            <h3>Healthcare</h3>
+                            <p>Operating theaters, ICUs, bone marrow transplant units, NICUs, outpatient clinics,
+                                emergency departments.</p>
+                        </div>
+                        <div class="app-item reveal-on-scroll" id="app-education">
+                            <h3>Education</h3>
+                            <p>Schools, colleges, universities, daycare centers, libraries, laboratories.</p>
+                        </div>
+                    </div>
+
+                    <!-- Center Diagram -->
+                    <div class="flower-diagram reveal-on-scroll" id="flower-diagram">
+                        <div class="petal-label" id="petal-label">Select Industry</div>
+                        <div class="petal-container">
+                            <!-- Healthcare (Top - p1) -->
+                            <div class="petal p1" data-target="app-healthcare" data-label="Healthcare">
+                                <span class="petal-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <!-- Commercial (Right - p2) -->
+                            <div class="petal p2" data-target="app-commercial" data-label="Commercial">
+                                <span class="petal-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                        <path d="M3 21h18M3 7v14m18-14v14M3 7l9-4 9 4M9 21V11h6v10" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <!-- Education (Bottom Right - p3) -->
+                            <div class="petal p3" data-target="app-education" data-label="Education">
+                                <span class="petal-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                        <path d="M22 10L12 5 2 10l10 5 10-5z" />
+                                        <path d="M6 12.5V16a6 6 0 0012 0v-3.5" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <!-- Hospitality (Bottom Left - p4) -->
+                            <div class="petal p4" data-target="app-hospitality" data-label="Hospitality">
+                                <span class="petal-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                        <path d="M18 8a3 3 0 00-3-3H5a2 2 0 00-2 2v14h18V11a3 3 0 00-3-3z" />
+                                        <path d="M8 12h.01M12 12h.01M16 12h.01" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <!-- Residential (Top Left - p5) -->
+                            <div class="petal p5" data-target="app-residential" data-label="Residential">
+                                <span class="petal-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                        <path
+                                            d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3" />
+                                        <path d="M9 21v-6a1 1 0 011-1h4a1 1 0 011 1v6" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="apps-column">
+                        <div class="app-item reveal-on-scroll" id="app-hospitality">
+                            <h3>Hospitality</h3>
+                            <p>Hotels, spas, restaurants, banquet halls, fitness centers, resort facilities.</p>
+                        </div>
+                        <div class="app-item reveal-on-scroll" id="app-commercial">
+                            <h3>Commercial</h3>
+                            <p>Corporate offices, meeting rooms, call centers, retail spaces, financial institutions.
+                            </p>
+                        </div>
+                        <div class="app-item reveal-on-scroll" id="app-residential">
+                            <h3>Residential</h3>
+                            <p>Allergy-prone homes, elderly care facilities, nurseries, high-end apartments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">User Feedback</span>
+                    <h2 class="section-title">Customer <span class="highlight">Testimonials</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="t-role">Office Manager</div>
+                        <div class="t-quote">"Healthier and More Productive Workspaces"</div>
+                        <p class="t-text">Bioster has noticeably improved our air quality, creating a healthier and more
+                            productive environment for our team.</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="t-role">School Principal</div>
+                        <div class="t-quote">"Cleaner, Safer Classrooms for Our Students"</div>
+                        <p class="t-text">Since installing Bioster, our classrooms feel fresher and absenteeism from
+                            allergies and infections has dropped significantly.</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="t-role">Hospital Administrator</div>
+                        <div class="t-quote">"A Game-Changer for Hospital Hygiene"</div>
+                        <p class="t-text">Bioster has reduced airborne pathogens in our OTs, giving staff and patients
+                            greater confidence in hygiene standards.</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="t-role">Hotel Manager</div>
+                        <div class="t-quote">"Unparalleled Luxury Experience for Guests"</div>
+                        <p class="t-text">Bioster keeps guest rooms fresh and clean, elevating our hospitality
+                            experience.</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="t-role">Celebrity Home</div>
+                        <div class="t-quote">"Pure Comfort and Wellness at Home"</div>
+                        <p class="t-text">Bioster keeps my home fresh, quiet, and allergen-free — the perfect balance of
+                            technology and wellness.</p>
+                    </div>
+
+                    <div class="testimonial-card proven-results-card">
+                        <div class="t-role">Proven Results</div>
+                        <ul class="results-list">
+                            <li><strong>Sunshine Hospitals</strong> – Eliminated surface & airborne bacteria in ICUs
+                            </li>
+                            <li><strong>KIMS Hospitals</strong> – Achieved nil infection rates in sterilized OTs</li>
+                            <li><strong>ESIC Medical College</strong> – Proven effective against SARS-CoV-2 within 30
+                                minutes (BSL-3 lab)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <section class="confidence-section">
+                <div class="section-container">
+                    <div class="confidence-shield">
+                        <div class="shield-icon-wrap">
+                            <svg class="shield-icon-svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm-2 16l-4-4 1.41-1.41L10 15.17l7.59-7.59L19 9l-9 9z" />
+                            </svg>
+                        </div>
+                        <div class="confidence-content">
+                            <h3>Risk-Free Guarantee</h3>
+                            <p>Our results are scientifically verified. If at any point our tests are proven wrong, we
+                                will <span class="highlight-refund">TAKE BACK THE DEVICE</span> and issue a <span
+                                    class="highlight-refund">100% FULL REFUND</span> immediately. Your trust is our
+                                ultimate priority.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Rakshak Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

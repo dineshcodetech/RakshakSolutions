@@ -13,7 +13,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="home-page">
+    <script>
+        if (sessionStorage.getItem('skipPreloader')) {
+            document.documentElement.classList.add('skip-loader');
+        }
+    </script>
     <!-- Custom Cursor Glow -->
     <div id="cursor-glow"></div>
     <div id="cursor-outer"></div>
@@ -25,21 +30,13 @@
     <!-- Preloader with Premium Effects -->
     <div class="preloader" id="preloader">
         <div class="splash-container">
-            <!-- Cinematic Energy Rings -->
-            <div class="splash-rings">
-                <div class="s-ring r1"></div>
-                <div class="s-ring r2"></div>
-                <div class="s-ring r3"></div>
-            </div>
-
             <!-- Atmospheric Depth -->
-            <div class="splash-nebula"></div>
             <div class="splash-grid"></div>
             <div class="splash-reflection"></div>
 
-            <div class="smoke-wrap">
+            <!-- <div class="smoke-wrap">
                 <img src="smoke.png" alt="Smoke Background" class="smoke-image">
-            </div>
+            </div> -->
 
             <div class="logo-wrap">
                 <div class="splash-logo">
@@ -62,6 +59,78 @@
                 <div class="scan-bar"></div>
                 <div class="holographic-glitch"></div>
             </div>
+            <!-- Floating Visual Entities -->
+            <div class="floating-entities">
+                <div class="entity robot d1 depth-mid">
+                    <div class="r-wing left"></div>
+                    <div class="r-wing right"></div>
+                </div>
+                <div class="entity microbe m1 depth-back">
+                    <div class="m-tail"></div>
+                </div>
+                <div class="entity virus v1 depth-front">
+                    <div class="v-spike s1"></div>
+                    <div class="v-spike s2 v-spike-short"></div>
+                    <div class="v-spike s3"></div>
+                    <div class="v-spike s4 v-spike-short"></div>
+                    <div class="v-spike s5"></div>
+                    <div class="v-spike s6 v-spike-short"></div>
+                    <div class="v-spike s7"></div>
+                    <div class="v-spike s8 v-spike-short"></div>
+                    <div class="v-spike s9"></div>
+                    <div class="v-spike s10 v-spike-short"></div>
+                    <div class="v-spike s11"></div>
+                    <div class="v-spike s12 v-spike-short"></div>
+                </div>
+                <!-- 3x Density Batch 1 -->
+                <div class="entity virus v3 depth-mid">
+                    <div class="v-spike s1"></div>
+                    <div class="v-spike s3"></div>
+                    <div class="v-spike s5"></div>
+                    <div class="v-spike s7"></div>
+                    <div class="v-spike s9"></div>
+                </div>
+                <div class="entity microbe m6 depth-back">
+                    <div class="m-tail"></div>
+                </div>
+                <div class="entity drone d6 depth-mid"></div>
+                <div class="entity robot r3 depth-front">
+                    <div class="r-wing left"></div>
+                    <div class="r-wing right"></div>
+                </div>
+                <!-- 3x Density Batch 2 -->
+                <div class="entity virus v4 depth-mid">
+                    <div class="v-spike s2"></div>
+                    <div class="v-spike s4"></div>
+                    <div class="v-spike s6"></div>
+                    <div class="v-spike s8"></div>
+                    <div class="v-spike s10"></div>
+                </div>
+                <div class="entity microbe m7 depth-back">
+                    <div class="m-tail"></div>
+                </div>
+                <div class="entity phage m13 depth-mid">
+                    <div class="phage-body"></div>
+                    <div class="p-leg l1"></div>
+                    <div class="p-leg l2"></div>
+                </div>
+                <div class="entity robot r4 depth-mid">
+                    <div class="r-wing left"></div>
+                    <div class="r-wing right"></div>
+                </div>
+
+                <div class="entity drone d2 depth-mid"></div>
+                <div class="entity phage m5 depth-mid">
+                    <div class="phage-body"></div>
+                    <div class="p-leg l1"></div>
+                    <div class="p-leg l2"></div>
+                    <div class="p-leg l3"></div>
+                </div>
+                <div class="entity microbe m2 depth-back">
+                    <div class="m-tail"></div>
+                </div>
+            </div>
+
             <div class="loader-content">
                 <div class="loader-status">AUTHENTICATING SECURE PROTOCOLS</div>
                 <div class="loader-bar-container">
@@ -73,11 +142,39 @@
         </div>
     </div>
 
-    <!-- Particle & Nebula Canvas -->
     <div class="canvas-container">
         <canvas id="particles"></canvas>
-        <canvas id="smoke"></canvas>
         <div class="nebula-overlay"></div>
+    </div>
+
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="banner-track">
+            <div class="banner-item">
+                <span class="banner-icon">📢</span>
+                OFFICIAL ANNOUNCEMENT: <span class="highlight-text">RAKSHAK SOLUTIONS</span> IS NOW THE <span
+                    class="highlight-text">AUTHORIZED DISTRIBUTOR</span> FOR <span class="highlight-text">BIOSTER</span>
+                IN <span class="highlight-text">TELANGANA</span>!
+            </div>
+            <div class="banner-item">
+                <span class="banner-icon">📢</span>
+                OFFICIAL ANNOUNCEMENT: <span class="highlight-text">RAKSHAK SOLUTIONS</span> IS NOW THE <span
+                    class="highlight-text">AUTHORIZED DISTRIBUTOR</span> FOR <span class="highlight-text">BIOSTER</span>
+                IN <span class="highlight-text">TELANGANA</span>!
+            </div>
+            <div class="banner-item">
+                <span class="banner-icon">📢</span>
+                OFFICIAL ANNOUNCEMENT: <span class="highlight-text">RAKSHAK SOLUTIONS</span> IS NOW THE <span
+                    class="highlight-text">AUTHORIZED DISTRIBUTOR</span> FOR <span class="highlight-text">BIOSTER</span>
+                IN <span class="highlight-text">TELANGANA</span>!
+            </div>
+            <div class="banner-item">
+                <span class="banner-icon">📢</span>
+                OFFICIAL ANNOUNCEMENT: <span class="highlight-text">RAKSHAK SOLUTIONS</span> IS NOW THE <span
+                    class="highlight-text">AUTHORIZED DISTRIBUTOR</span> FOR <span class="highlight-text">BIOSTER</span>
+                IN <span class="highlight-text">TELANGANA</span>!
+            </div>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -85,7 +182,19 @@
         <div class="nav-container">
             <a href="#home" class="nav-logo">
                 <span class="logo-text">RAK</span>
-                <span class="logo-shield">S</span>
+                <span class="logo-shield-container">
+                    <svg viewBox="0 0 100 120" class="nav-shield-svg">
+                        <defs>
+                            <linearGradient id="navShieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff416c" />
+                                <stop offset="100%" style="stop-color:#ff4b2b" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M50 5 L95 25 L95 55 C95 85 50 115 50 115 C50 115 5 85 5 55 L5 25 Z"
+                            fill="url(#navShieldGrad)" stroke="var(--color-blue-primary)" stroke-width="3" />
+                        <text x="50" y="82" text-anchor="middle" class="nav-shield-s">S</text>
+                    </svg>
+                </span>
                 <span class="logo-text">HAK</span>
             </a>
             <div class="nav-toggle" id="navToggle">
@@ -108,9 +217,124 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-bg">
-            <div class="energy-ring ring-1"></div>
-            <div class="energy-ring ring-2"></div>
-            <div class="energy-ring ring-3"></div>
+
+            <!-- Floating Visual Entities -->
+            <div class="floating-entities">
+                <div class="entity virus d3 depth-back">
+                    <div class="v-spike s1"></div>
+                    <div class="v-spike s4"></div>
+                    <div class="v-spike s7"></div>
+                    <div class="v-spike s10"></div>
+                </div>
+                <!-- 3x Density Hero Batch 1 -->
+                <div class="entity virus v5 depth-mid">
+                    <div class="v-spike s1"></div>
+                    <div class="v-spike s4"></div>
+                    <div class="v-spike s7"></div>
+                    <div class="v-spike s10"></div>
+                    <div class="v-spike s2 v-spike-short"></div>
+                    <div class="v-spike s8 v-spike-short"></div>
+                </div>
+                <div class="entity microbe m8 depth-back">
+                    <div class="m-tail"></div>
+                </div>
+                <div class="entity robot r5 depth-front">
+                    <div class="r-wing left"></div>
+                    <div class="r-wing right"></div>
+                </div>
+                <div class="entity drone d8 depth-mid"></div>
+
+                <div class="entity robot r1 depth-mid">
+                    <div class="r-wing left"></div>
+                    <div class="r-wing right"></div>
+                </div>
+
+                <!-- 3x Density Hero Batch 2 -->
+                <div class="entity virus v6 depth-front">
+                    <div class="v-spike s1"></div>
+                    <div class="v-spike s3"></div>
+                    <div class="v-spike s5"></div>
+                    <div class="v-spike s7"></div>
+                    <div class="v-spike s9"></div>
+                    <div class="v-spike s11"></div>
+                </div>
+                <div class="entity microbe m9 depth-mid">
+                    <div class="m-tail"></div>
+                </div>
+                <div class="entity robot r6 depth-back">
+                    <div class="r-wing left"></div>
+                    <div class="r-wing right"></div>
+                </div>
+                <div class="entity phage m14 depth-mid">
+                    <div class="phage-body"></div>
+                    <div class="p-leg l1"></div>
+                    <div class="p-leg l2"></div>
+                </div>
+
+                <div class="entity virus v2 depth-mid">
+                    <div class="v-spike s2"></div>
+                    <div class="v-spike s5"></div>
+                    <div class="v-spike s8"></div>
+                    <div class="v-spike s11"></div>
+                </div>
+
+                <!-- 3x Density Hero Batch 3 -->
+                <div class="entity virus v7 depth-back">
+                    <div class="v-spike s2"></div>
+                    <div class="v-spike s4"></div>
+                    <div class="v-spike s6"></div>
+                    <div class="v-spike s8"></div>
+                </div>
+                <div class="entity microbe m10 depth-front">
+                    <div class="m-tail"></div>
+                </div>
+                <div class="entity robot r7 depth-mid">
+                    <div class="r-wing left"></div>
+                    <div class="r-wing right"></div>
+                </div>
+                <div class="entity drone d9 depth-back"></div>
+
+                <div class="entity microbe m3 depth-front">
+                    <div class="m-tail"></div>
+                </div>
+
+                <!-- 3x Density Hero Batch 4 -->
+                <div class="entity virus v8 depth-mid">
+                    <div class="v-spike s3"></div>
+                    <div class="v-spike s9"></div>
+                    <div class="v-spike s12"></div>
+                </div>
+                <div class="entity microbe m11 depth-back">
+                    <div class="m-tail"></div>
+                </div>
+                <div class="entity robot r8 depth-front">
+                    <div class="r-wing left"></div>
+                </div>
+
+                <div class="entity drone d4 depth-back"></div>
+                <div class="entity phage d5 depth-mid">
+                    <div class="phage-body"></div>
+                    <div class="p-leg l1"></div>
+                    <div class="p-leg l2"></div>
+                    <div class="p-leg l3"></div>
+                </div>
+                <div class="entity microbe m4 depth-mid">
+                    <div class="m-tail"></div>
+                </div>
+                <div class="entity robot r2 depth-front">
+                    <div class="r-wing left"></div>
+                    <div class="r-wing right"></div>
+                </div>
+
+                <!-- Final Polish Density -->
+                <div class="entity virus v9 depth-mid">
+                    <div class="v-spike s4"></div>
+                </div>
+                <div class="entity microbe m12 depth-back">
+                    <div class="m-tail"></div>
+                </div>
+                <div class="entity drone d10 depth-front"></div>
+            </div>
         </div>
         <div class="hero-content">
             <div class="hero-badge">
@@ -388,14 +612,14 @@
                             <li>Clean Air Technology</li>
                             <li>Chemical-Free Protection</li>
                             <li>Continuous Sterilization</li>
+                            <li><strong>Hardware Lease Plan:</strong> Access BIOSTER via tailored plans for healthcare,
+                                offering seamless integration without upfront CAPEX costs.</li>
                         </ul>
                         <div class="product-actions">
-                            <a href="BIOSTER-PROIMAGING 010126.pdf" class="product-link bioster-link" target="_blank">
-                                Learn More <span>→</span>
+                            <a href="bioster.html" class="btn btn-primary">
+                                <span class="btn-text">View Details</span>
+                                <span class="btn-icon">→</span>
                             </a>
-                            <button class="video-trigger bioster-video-btn" data-video="bioster-demo.mp4">
-                                <span class="play-icon">▶</span> Watch Demo
-                            </button>
                         </div>
                     </div>
                     <div class="card-number bioster-num">01</div>
@@ -425,10 +649,7 @@
                             <li>Real-time Problem Solving</li>
                             <li>Innovation Hub</li>
                         </ul>
-                        <a href="Raskshak Edugenie_Schools_Robotics.pdf" class="product-link edugenie-link"
-                            target="_blank">
-                            Learn More <span>→</span>
-                        </a>
+
                     </div>
                     <div class="card-number edugenie-num">02</div>
                 </div>
@@ -457,11 +678,9 @@
                             <li>Economical Options</li>
                         </ul>
                         <div class="product-actions">
-                            <a href="BCSSL-BluHealth_Slide_Deck[1]_251115_191813.pdf"
-                                class="product-link bluhealth-link" target="_blank">
-                                Learn More <span>→</span>
-                            </a>
-                            <button class="video-trigger bluhealth-video-btn" data-video="bluhealth-demo.mp4">
+
+                            <button class="video-trigger bluhealth-video-btn"
+                                data-video="https://apks-mobile-apps.s3.ap-south-1.amazonaws.com/rakshak/demovedioBluHealth.mp4">
                                 <span class="play-icon">▶</span> Watch Demo
                             </button>
                         </div>
@@ -555,62 +774,190 @@
         <div class="section-container">
             <div class="section-header">
                 <span class="section-tag">Global Network</span>
-                <h2 class="section-title">Our <span class="highlight">Trusted Partners</span></h2>
+                <h2 class="section-title">Trusted Where <span class="highlight">Clean Spaces</span> Matter Most</h2>
                 <div class="title-underline"></div>
             </div>
 
             <div class="client-marquee">
                 <div class="client-track">
-                    <!-- Set 1 -->
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Flipkart</div>
+                    <!-- Set 1 (21 logos) -->
+                    <div class="client-logo-item" title="State Bank of India">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/5/58/State_Bank_of_India_logo.svg" alt="SBI"
+                            class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Google Partner</div>
+                    <div class="client-logo-item" title="Sunshine Hospitals">
+                        <img src="https://sunshinehospitals.com/wp-content/uploads/2019/04/sunshine-logo.png"
+                            alt="Sunshine Hospitals" class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">IBM</div>
+                    <div class="client-logo-item" title="KIMS Hospitals">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Kims_Hospitals_Logo.png"
+                            alt="KIMS Hospitals" class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">ISO 9001</div>
+                    <div class="client-logo-item" title="Omega Hospitals">
+                        <img src="https://www.omegahospitals.com/images/logo.png" alt="Omega Hospitals"
+                            class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Microsoft</div>
+                    <div class="client-logo-item" title="Bectran">
+                        <img src="https://www.bectran.com/images/Logo_Bectran.png" alt="Bectran" class="partner-logo"
+                            referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Amazon</div>
+                    <div class="client-logo-item" title="St. Theresa's Hospital">
+                        <img src="https://sttheresashospital.com/wp-content/uploads/2021/04/logo.png"
+                            alt="St. Theresa's Hospital" class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Samsung</div>
+                    <div class="client-logo-item" title="Osmania General Hospital">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/c/c5/Osmania_General_Hospital_logo.png"
+                            alt="Osmania General Hospital" class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Intel</div>
+                    <div class="client-logo-item" title="Pinnacle Hospitals">
+                        <img src="https://pinnaclehospitals.com/wp-content/uploads/2018/11/Pinnacle-Hospitals-Logo.png"
+                            alt="Pinnacle Hospitals" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Vaidhya">
+                        <div class="vaidhya-logo">
+                            <div class="vaidhya-icon-wrap">
+                                <span class="vaidhya-plus">+</span>
+                            </div>
+                            <span class="vaidhya-text">VAIDHYA</span>
+                        </div>
+                    </div>
+                    <div class="client-logo-item" title="Neon Lifesciences">
+                        <img src="https://neonlifesciences.com/wp-content/uploads/2021/03/Neon-Logo.png"
+                            alt="Neon Lifesciences" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="NSIC">
+                        <img src="https://www.nsic.co.in/images/nsic_logo.png" alt="NSIC" class="partner-logo"
+                            referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Mudunuru">
+                        <img src="https://mudunuru.com/wp-content/uploads/2020/08/Mudunuru-Logo.png" alt="Mudunuru"
+                            class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="APSRTC">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/Andhra_Pradesh_State_Road_Transport_Corporation_logo.svg/1024px-Andhra_Pradesh_State_Road_Transport_Corporation_logo.svg.png"
+                            alt="APSRTC" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="AP Police">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Andhra_Pradesh_Police_Logo.png"
+                            alt="AP Police" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Shri Saibaba Sansthan Trust Shirdi">
+                        <img src="https://online.sai.org.in/static/img/logo.png"
+                            alt="Shri Saibaba Sansthan Trust Shirdi" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Government of Andhra Pradesh">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Emblem_of_Andhra_Pradesh.svg/1024px-Emblem_of_Andhra_Pradesh.svg.png"
+                            alt="Govt of AP" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Sun Square">
+                        <img src="http://www.hotelsunsquare.com/images/SunSquare_Logo.png" alt="Sun Square"
+                            class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Department of Health, AP">
+                        <img src="https://hmfw.ap.gov.in/images/logo.png" alt="Dept of Health AP" class="partner-logo"
+                            referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Sify Technologies">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Sify_Technologies_Logo.svg/1024px-Sify_Technologies_Logo.svg.png"
+                            alt="Sify" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Tesync">
+                        <img src="http://tesync.com/images/logo.png" alt="Tesync" class="partner-logo"
+                            referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Anvita Builders">
+                        <img src="https://anvita.in/wp-content/uploads/2021/05/anvita-logo.png" alt="Anvita Builders"
+                            class="partner-logo" referrerpolicy="no-referrer">
                     </div>
 
-                    <!-- Duplicate for infinite scroll -->
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Flipkart</div>
+                    <!-- Duplicate Set (Set 2) -->
+                    <div class="client-logo-item" title="State Bank of India">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/5/58/State_Bank_of_India_logo.svg" alt="SBI"
+                            class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Google Partner</div>
+                    <div class="client-logo-item" title="Sunshine Hospitals">
+                        <img src="https://sunshinehospitals.com/wp-content/uploads/2019/04/sunshine-logo.png"
+                            alt="Sunshine Hospitals" class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">IBM</div>
+                    <div class="client-logo-item" title="KIMS Hospitals">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Kims_Hospitals_Logo.png"
+                            alt="KIMS Hospitals" class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">ISO 9001</div>
+                    <div class="client-logo-item" title="Omega Hospitals">
+                        <img src="https://www.omegahospitals.com/images/logo.png" alt="Omega Hospitals"
+                            class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Microsoft</div>
+                    <div class="client-logo-item" title="Bectran">
+                        <img src="https://www.bectran.com/images/Logo_Bectran.png" alt="Bectran" class="partner-logo"
+                            referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Amazon</div>
+                    <div class="client-logo-item" title="St. Theresa's Hospital">
+                        <img src="https://sttheresashospital.com/wp-content/uploads/2021/04/logo.png"
+                            alt="St. Theresa's Hospital" class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Samsung</div>
+                    <div class="client-logo-item" title="Osmania General Hospital">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/c/c5/Osmania_General_Hospital_logo.png"
+                            alt="Osmania General Hospital" class="partner-logo" referrerpolicy="no-referrer">
                     </div>
-                    <div class="client-logo-item">
-                        <div class="client-card-inner">Intel</div>
+                    <div class="client-logo-item" title="Pinnacle Hospitals">
+                        <img src="https://pinnaclehospitals.com/wp-content/uploads/2018/11/Pinnacle-Hospitals-Logo.png"
+                            alt="Pinnacle Hospitals" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Vaidhya">
+                        <div class="vaidhya-logo">
+                            <div class="vaidhya-icon-wrap">
+                                <span class="vaidhya-plus">+</span>
+                            </div>
+                            <span class="vaidhya-text">VAIDHYA</span>
+                        </div>
+                    </div>
+                    <div class="client-logo-item" title="Neon Lifesciences">
+                        <img src="https://neonlifesciences.com/wp-content/uploads/2021/03/Neon-Logo.png"
+                            alt="Neon Lifesciences" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="NSIC">
+                        <img src="https://www.nsic.co.in/images/nsic_logo.png" alt="NSIC" class="partner-logo"
+                            referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Mudunuru">
+                        <img src="https://mudunuru.com/wp-content/uploads/2020/08/Mudunuru-Logo.png" alt="Mudunuru"
+                            class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="APSRTC">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/Andhra_Pradesh_State_Road_Transport_Corporation_logo.svg/1024px-Andhra_Pradesh_State_Road_Transport_Corporation_logo.svg.png"
+                            alt="APSRTC" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="AP Police">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Andhra_Pradesh_Police_Logo.png"
+                            alt="AP Police" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Shri Saibaba Sansthan Trust Shirdi">
+                        <img src="https://online.sai.org.in/static/img/logo.png"
+                            alt="Shri Saibaba Sansthan Trust Shirdi" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Government of Andhra Pradesh">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Emblem_of_Andhra_Pradesh.svg/1024px-Emblem_of_Andhra_Pradesh.svg.png"
+                            alt="Govt of AP" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Sun Square">
+                        <img src="http://www.hotelsunsquare.com/images/SunSquare_Logo.png" alt="Sun Square"
+                            class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Department of Health, AP">
+                        <img src="https://hmfw.ap.gov.in/images/logo.png" alt="Dept of Health AP" class="partner-logo"
+                            referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Sify Technologies">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Sify_Technologies_Logo.svg/1024px-Sify_Technologies_Logo.svg.png"
+                            alt="Sify" class="partner-logo" referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Tesync">
+                        <img src="http://tesync.com/images/logo.png" alt="Tesync" class="partner-logo"
+                            referrerpolicy="no-referrer">
+                    </div>
+                    <div class="client-logo-item" title="Anvita Builders">
+                        <img src="https://anvita.in/wp-content/uploads/2021/05/anvita-logo.png" alt="Anvita Builders"
+                            class="partner-logo" referrerpolicy="no-referrer">
                     </div>
                 </div>
             </div>
@@ -673,7 +1020,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Hotline (24/7)</h4>
-                                <p>+91 1800 RAKSHAK<br>+91 40 6789 1234</p>
+                                <p><a href="tel:+918886234101" style="color: inherit;">+91 8886234101</a></p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -694,7 +1041,8 @@
                         <div class="emergency-pulse"></div>
                         <div class="emergency-content">
                             <span class="emergency-label">EMERGENCY?</span>
-                            <span class="emergency-number">1800-PROTECT</span>
+                            <span class="emergency-number"><a href="tel:+918886234101"
+                                    style="color: inherit;">8886234101</a></span>
                         </div>
                     </div>
                 </div>
@@ -767,7 +1115,13 @@
                 <div class="footer-brand">
                     <div class="footer-logo">
                         <span class="logo-text">RAK</span>
-                        <span class="logo-shield">S</span>
+                        <span class="logo-shield-container">
+                            <svg viewBox="0 0 100 120" class="nav-shield-svg">
+                                <path d="M50 5 L95 25 L95 55 C95 85 50 115 50 115 C50 115 5 85 5 55 L5 25 Z"
+                                    fill="url(#navShieldGrad)" stroke="var(--color-blue-primary)" stroke-width="3" />
+                                <text x="50" y="82" text-anchor="middle" class="nav-shield-s">S</text>
+                            </svg>
+                        </span>
                         <span class="logo-text">HAK</span>
                     </div>
                     <p class="footer-tagline">Sustainable Solutions for a Better Future</p>
