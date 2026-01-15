@@ -245,17 +245,7 @@
 
 /* Detailed Coronavirus (High Fidelity - MATCHING USER IMAGE) */
 .virus {
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle at 35% 35%, #ff4d4d, #800000);
-    border-radius: 50%;
-    box-shadow:
-        0 0 25px rgba(255, 0, 0, 0.5),
-        inset 0 0 15px rgba(0, 0, 0, 0.6);
-    position: relative;
-    opacity: 0.9 !important;
-    animation: floatOrganic 22s ease-in-out infinite alternate, virusPulse 3s ease-in-out infinite, fadeInVirus 2s ease-out forwards;
-    z-index: 10;
+    display: none !important;
 }
 
 /* Surface Pores/Dots (Matching Image) */
@@ -692,20 +682,7 @@
 }
 
 /* Preloader Specific Covid Visibility */
-.preloader .virus {
-    background: radial-gradient(circle at 30% 30%, #ff0000, #b30000) !important;
-    box-shadow: 0 0 35px #ff0000, 0 0 70px rgba(255, 0, 0, 0.5) !important;
-    opacity: 0.9 !important;
-    z-index: 1000 !important;
-}
-
-/* Home Page / Hero Specific Covid Visibility */
-.hero .virus {
-    background: radial-gradient(circle at 30% 30%, #ff0000, #b30000) !important;
-    box-shadow: 0 0 35px #ff0000, 0 0 70px rgba(255, 0, 0, 0.5) !important;
-    opacity: 0.9 !important;
-    z-index: 1000 !important;
-}
+/* Removed Legacy Red Virus Overrides */
 
 .v1 {
     top: 25%;
@@ -1079,7 +1056,7 @@
     opacity: 0.75;
     animation: floatVirus1 22s ease-in-out infinite, pulseVirus 3s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
     animation-delay: 0s;
-    filter: drop-shadow(0 0 20px rgba(255, 65, 108, 0.6));
+    filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.6));
 }
 
 .virus-img-2 {
@@ -1090,7 +1067,7 @@
     opacity: 0.6;
     animation: floatVirus2 28s ease-in-out infinite, pulseVirus 4s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
     animation-delay: 2.5s;
-    filter: drop-shadow(0 0 15px rgba(255, 65, 108, 0.5));
+    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
 }
 
 .virus-img-3 {
@@ -1101,7 +1078,7 @@
     opacity: 0.5;
     animation: floatVirus3 32s ease-in-out infinite, pulseVirus 3.5s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
     animation-delay: 4s;
-    filter: drop-shadow(0 0 12px rgba(255, 65, 108, 0.4));
+    filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.4));
 }
 
 .virus-img-4 {
@@ -1112,7 +1089,7 @@
     opacity: 0.55;
     animation: floatVirus4 26s ease-in-out infinite, pulseVirus 2.5s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
     animation-delay: 1s;
-    filter: drop-shadow(0 0 18px rgba(255, 65, 108, 0.55));
+    filter: drop-shadow(0 0 18px rgba(0, 210, 255, 0.55));
 }
 
 /* Fungi Images - Blue aspergillus-style */
@@ -1279,10 +1256,10 @@
 /* Pulse effect for virus */
 @keyframes pulseVirus {
     0%, 100% {
-        filter: drop-shadow(0 0 20px rgba(255, 65, 108, 0.6));
+        filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.6));
     }
     50% {
-        filter: drop-shadow(0 0 35px rgba(255, 65, 108, 0.9));
+        filter: drop-shadow(0 0 35px rgba(0, 210, 255, 0.9));
     }
 }
 
@@ -6773,5 +6750,88 @@ BIOSTER PAGE PRODUCT HERO STYLES
     
     .bioster-hero-img {
         max-height: 350px;
+    }
+}
+
+/* 
+============================================
+BIOSTER LUNG HEALTH SECTION
+============================================
+*/
+.lung-health-section {
+    padding: 6rem 1rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0, 210, 255, 0.05) 100%);
+    position: relative;
+}
+
+.lung-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lung-image-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.lung-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(0, 210, 255, 0.1), transparent);
+    pointer-events: none;
+}
+
+.lung-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.lung-image-wrap:hover img {
+    transform: scale(1.05);
+}
+
+.lung-content .section-title {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.lung-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+
+.lung-feature {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 900px) {
+    .lung-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .lung-content .section-title {
+        text-align: center;
+    }
+    .lung-text {
+        text-align: center;
     }
 }
