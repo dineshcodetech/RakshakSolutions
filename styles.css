@@ -1003,8 +1003,441 @@
     animation-delay: -11s;
 }
 
+/* ============================================
+   REAL FLOATING MICROORGANISM IMAGES
+   ============================================ */
+.floating-microbes-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
 
-/* Additional Entities for Depth */
+.floating-microbe {
+    position: absolute;
+    object-fit: contain;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.3));
+    will-change: transform, opacity;
+}
+
+/* Bacteria Images - Rod-shaped purple bacteria */
+.bacteria-1 {
+    width: 120px;
+    height: auto;
+    top: 10%;
+    left: 5%;
+    opacity: 0.7;
+    animation: floatBacteria1 25s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 0.5s;
+    filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.5));
+}
+
+.bacteria-2 {
+    width: 80px;
+    height: auto;
+    top: 60%;
+    right: 8%;
+    opacity: 0.5;
+    animation: floatBacteria2 30s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 1.5s;
+    filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.4));
+    transform: rotate(45deg);
+}
+
+.bacteria-3 {
+    width: 100px;
+    height: auto;
+    bottom: 20%;
+    left: 25%;
+    opacity: 0.6;
+    animation: floatBacteria3 28s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 3s;
+    filter: drop-shadow(0 0 12px rgba(138, 43, 226, 0.45));
+    transform: rotate(-30deg);
+}
+
+.bacteria-4 {
+    width: 60px;
+    height: auto;
+    top: 75%;
+    right: 35%;
+    opacity: 0.4;
+    animation: floatBacteria4 35s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 2s;
+    filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.35));
+}
+
+/* Virus Images - Coronavirus-style */
+.virus-img-1 {
+    width: 100px;
+    height: auto;
+    top: 15%;
+    right: 15%;
+    opacity: 0.75;
+    animation: floatVirus1 22s ease-in-out infinite, pulseVirus 3s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 0s;
+    filter: drop-shadow(0 0 20px rgba(255, 65, 108, 0.6));
+}
+
+.virus-img-2 {
+    width: 70px;
+    height: auto;
+    bottom: 30%;
+    left: 10%;
+    opacity: 0.6;
+    animation: floatVirus2 28s ease-in-out infinite, pulseVirus 4s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 2.5s;
+    filter: drop-shadow(0 0 15px rgba(255, 65, 108, 0.5));
+}
+
+.virus-img-3 {
+    width: 55px;
+    height: auto;
+    top: 45%;
+    left: 45%;
+    opacity: 0.5;
+    animation: floatVirus3 32s ease-in-out infinite, pulseVirus 3.5s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 4s;
+    filter: drop-shadow(0 0 12px rgba(255, 65, 108, 0.4));
+}
+
+.virus-img-4 {
+    width: 85px;
+    height: auto;
+    bottom: 10%;
+    right: 20%;
+    opacity: 0.55;
+    animation: floatVirus4 26s ease-in-out infinite, pulseVirus 2.5s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 1s;
+    filter: drop-shadow(0 0 18px rgba(255, 65, 108, 0.55));
+}
+
+/* Fungi Images - Blue aspergillus-style */
+.fungi-1 {
+    width: 110px;
+    height: auto;
+    top: 30%;
+    right: 5%;
+    opacity: 0.65;
+    animation: floatFungi1 30s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 0.8s;
+    filter: drop-shadow(0 0 18px rgba(0, 150, 255, 0.5));
+}
+
+.fungi-2 {
+    width: 75px;
+    height: auto;
+    bottom: 45%;
+    left: 15%;
+    opacity: 0.5;
+    animation: floatFungi2 35s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 2.2s;
+    filter: drop-shadow(0 0 12px rgba(0, 150, 255, 0.4));
+    transform: rotate(15deg);
+}
+
+.fungi-3 {
+    width: 90px;
+    height: auto;
+    top: 70%;
+    left: 55%;
+    opacity: 0.45;
+    animation: floatFungi3 28s ease-in-out infinite, fadeInMicrobe 2s ease-out forwards;
+    animation-delay: 3.5s;
+    filter: drop-shadow(0 0 14px rgba(0, 150, 255, 0.45));
+    transform: rotate(-20deg);
+}
+
+/* Floating Animations for Bacteria */
+@keyframes floatBacteria1 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(50px, 30px) rotate(15deg);
+    }
+    50% {
+        transform: translate(100px, -20px) rotate(-10deg);
+    }
+    75% {
+        transform: translate(30px, -40px) rotate(20deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes floatBacteria2 {
+    0% {
+        transform: translate(0, 0) rotate(45deg);
+    }
+    33% {
+        transform: translate(-60px, 40px) rotate(30deg);
+    }
+    66% {
+        transform: translate(-30px, -50px) rotate(60deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(45deg);
+    }
+}
+
+@keyframes floatBacteria3 {
+    0% {
+        transform: translate(0, 0) rotate(-30deg);
+    }
+    20% {
+        transform: translate(40px, -30px) rotate(-15deg);
+    }
+    40% {
+        transform: translate(80px, 20px) rotate(-45deg);
+    }
+    60% {
+        transform: translate(50px, 50px) rotate(-25deg);
+    }
+    80% {
+        transform: translate(20px, 30px) rotate(-35deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(-30deg);
+    }
+}
+
+@keyframes floatBacteria4 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(-80px, -60px) rotate(180deg);
+    }
+}
+
+/* Floating Animations for Virus */
+@keyframes floatVirus1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(-40px, 50px) scale(1.05);
+    }
+    50% {
+        transform: translate(-80px, 20px) scale(0.95);
+    }
+    75% {
+        transform: translate(-30px, -30px) scale(1.02);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes floatVirus2 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(70px, -30px) rotate(120deg);
+    }
+    66% {
+        transform: translate(40px, 40px) rotate(240deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+@keyframes floatVirus3 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, 30px) scale(1.1);
+    }
+    50% {
+        transform: translate(-20px, 50px) scale(0.9);
+    }
+    75% {
+        transform: translate(-40px, 10px) scale(1.05);
+    }
+}
+
+@keyframes floatVirus4 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(-60px, -40px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Pulse effect for virus */
+@keyframes pulseVirus {
+    0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(255, 65, 108, 0.6));
+    }
+    50% {
+        filter: drop-shadow(0 0 35px rgba(255, 65, 108, 0.9));
+    }
+}
+
+/* Floating Animations for Fungi */
+@keyframes floatFungi1 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-50px, 40px) rotate(10deg);
+    }
+    50% {
+        transform: translate(-20px, 80px) rotate(-5deg);
+    }
+    75% {
+        transform: translate(30px, 50px) rotate(15deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes floatFungi2 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(15deg);
+    }
+    33% {
+        transform: translate(60px, 20px) rotate(25deg);
+    }
+    66% {
+        transform: translate(30px, -40px) rotate(5deg);
+    }
+}
+
+@keyframes floatFungi3 {
+    0% {
+        transform: translate(0, 0) rotate(-20deg);
+    }
+    20% {
+        transform: translate(-30px, 30px) rotate(-10deg);
+    }
+    40% {
+        transform: translate(20px, 60px) rotate(-30deg);
+    }
+    60% {
+        transform: translate(50px, 30px) rotate(-15deg);
+    }
+    80% {
+        transform: translate(30px, -20px) rotate(-25deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(-20deg);
+    }
+}
+
+/* Fade in animation */
+@keyframes fadeInMicrobe {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: var(--target-opacity, 0.6);
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .floating-microbe {
+        transform: scale(0.6) !important;
+        opacity: 0.4 !important;
+    }
+    
+    .bacteria-2,
+    .bacteria-4,
+    .virus-img-3,
+    .fungi-2 {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-microbe {
+        transform: scale(0.4) !important;
+        opacity: 0.3 !important;
+    }
+    
+    .bacteria-3,
+    .virus-img-4,
+    .fungi-3 {
+        display: none !important;
+    }
+}
+
+/* Preloader Microbes */
+.preloader-microbes {
+    z-index: 10;
+}
+
+.bacteria-preload-1 {
+    width: 100px;
+    height: auto;
+    top: 15%;
+    left: 8%;
+    opacity: 0.65;
+    animation: floatBacteria1 20s ease-in-out infinite, fadeInMicrobe 3s ease-out forwards;
+    animation-delay: 2s;
+    filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.6));
+}
+
+.bacteria-preload-2 {
+    width: 70px;
+    height: auto;
+    bottom: 25%;
+    right: 12%;
+    opacity: 0.5;
+    animation: floatBacteria3 25s ease-in-out infinite, fadeInMicrobe 3s ease-out forwards;
+    animation-delay: 2.5s;
+    filter: drop-shadow(0 0 12px rgba(138, 43, 226, 0.5));
+    transform: rotate(60deg);
+}
+
+.virus-preload-1 {
+    width: 90px;
+    height: auto;
+    top: 20%;
+    right: 10%;
+    opacity: 0.7;
+    animation: floatVirus1 18s ease-in-out infinite, pulseVirus 3s ease-in-out infinite, fadeInMicrobe 3s ease-out forwards;
+    animation-delay: 2.2s;
+    filter: drop-shadow(0 0 20px rgba(255, 65, 108, 0.7));
+}
+
+.virus-preload-2 {
+    width: 60px;
+    height: auto;
+    bottom: 15%;
+    left: 20%;
+    opacity: 0.55;
+    animation: floatVirus3 22s ease-in-out infinite, pulseVirus 4s ease-in-out infinite, fadeInMicrobe 3s ease-out forwards;
+    animation-delay: 3s;
+    filter: drop-shadow(0 0 15px rgba(255, 65, 108, 0.6));
+}
+
+.fungi-preload-1 {
+    width: 85px;
+    height: auto;
+    bottom: 30%;
+    right: 25%;
+    opacity: 0.6;
+    animation: floatFungi1 23s ease-in-out infinite, fadeInMicrobe 3s ease-out forwards;
+    animation-delay: 2.8s;
+    filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.5));
+}
+
 .e-depth-1 {
     animation-duration: 40s !important;
     transform: scale(0.6);
@@ -3880,11 +4313,11 @@ body {
 }
 
 /* ============================================
-   PRODUCTS SECTION (BIOSTER, EDUGENIE, BLUHEALTH)
+   PRODUCTS SECTION (BIOSTER, EDUGENIE, BLUHEALTH, STERIZEN)
    ============================================ */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
@@ -4033,6 +4466,43 @@ body {
 
 .bluhealth-num {
     color: rgba(255, 255, 255, 0.05);
+}
+
+/* STERIZEN - Clean Teal/Blue */
+.sterizen {
+    --product-color: #00BFA5; /* Teal */
+    --product-glow: rgba(0, 191, 165, 0.3);
+}
+
+.sterizen::before {
+    background: linear-gradient(90deg, #00BFA5, #00897B);
+}
+
+.sterizen:hover {
+    border-color: #00BFA5;
+    box-shadow: 0 20px 60px rgba(0, 191, 165, 0.25);
+}
+
+.sterizen-icon {
+    color: #00BFA5;
+}
+
+.sterizen-glow {
+    background: radial-gradient(circle, rgba(0, 191, 165, 0.15) 0%, transparent 70%);
+}
+
+.sterizen-link {
+    color: #00BFA5 !important;
+    border: 1px solid rgba(0, 191, 165, 0.3);
+}
+
+.sterizen-link:hover {
+    background: rgba(0, 191, 165, 0.15);
+    border-color: #00BFA5;
+}
+
+.sterizen-num {
+    color: rgba(0, 191, 165, 0.15);
 }
 
 /* Product Card Common Styles */
@@ -4345,10 +4815,13 @@ body {
     width: 100%;
     overflow: hidden;
     margin-top: 5rem;
-    padding: 2.5rem 0;
-    background: rgba(255, 255, 255, 0.02);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3rem 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 210, 255, 0.03) 50%, 
+        transparent 100%);
+    border-top: 1px solid rgba(0, 210, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 210, 255, 0.1);
 }
 
 .client-marquee::before,
@@ -4356,7 +4829,7 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 20%;
     height: 100%;
     z-index: 2;
     pointer-events: none;
@@ -4376,40 +4849,65 @@ body {
     display: flex;
     white-space: nowrap;
     width: max-content;
-    animation: marqueeScroll 60s linear infinite;
-    gap: 3rem;
+    animation: marqueeScroll 40s linear infinite;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.client-track:hover {
+    animation-play-state: paused;
 }
 
 .client-logo-item {
-    flex: 0 0 250px;
-    height: 120px;
+    flex: 0 0 220px;
+    height: 110px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: all var(--transition-medium);
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.08); /* Slightly lighter for contrast */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.client-logo-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .client-logo-item:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.2);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--color-blue-primary);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+.client-logo-item:hover::after {
+    opacity: 1;
 }
 
 .partner-logo {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: all var(--transition-medium);
+    filter: none; /* Show original colors */
+    opacity: 1;
+    transition: all 0.4s ease;
+    z-index: 1;
 }
 
 .client-logo-item:hover .partner-logo {
-    filter: grayscale(0%);
-    opacity: 1;
+    transform: scale(1.05);
+    filter: brightness(1.1); /* Slight pop on hover */
 }
 
 /* Vaidhya Logo Style (Matches Image) */
@@ -4418,6 +4916,12 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 0.2rem;
+    filter: none; /* Show original colors */
+    transition: all 0.4s ease;
+}
+
+.client-logo-item:hover .vaidhya-logo {
+    transform: scale(1.05);
 }
 
 .vaidhya-icon-wrap {
@@ -4914,6 +5418,177 @@ body {
         width: 50px;
         height: 50px;
     }
+
+    .apps-column {
+        gap: 1.5rem;
+    }
+
+    .app-item {
+        padding: 1.5rem;
+    }
+
+    .app-item h3 {
+        font-size: 1.6rem;
+    }
+
+    .app-item p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Product Hero (Bioster page) */
+    .product-hero {
+        padding: calc(6rem + 32px) 1rem 3rem;
+    }
+
+    .product-hero-title {
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+    /* Flower Diagram - Mobile */
+    .flower-diagram {
+        width: 260px;
+        height: 260px;
+    }
+
+    .petal {
+        width: 90px;
+        height: 130px;
+        padding-top: 12px;
+        margin-left: -45px;
+        margin-top: -130px;
+    }
+
+    .petal-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .petal-label {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+        top: -50px;
+    }
+
+    .flower-diagram::after {
+        width: 45px;
+        height: 45px;
+    }
+
+    .apps-column {
+        gap: 1rem;
+    }
+
+    .app-item {
+        padding: 1.25rem;
+        border-radius: 16px;
+    }
+
+    .app-item h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .app-item p {
+        font-size: 0.9rem;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    .t-role {
+        font-size: 1.1rem;
+    }
+
+    .t-quote {
+        font-size: 1rem;
+    }
+
+    .t-text {
+        font-size: 0.9rem;
+    }
+
+    .results-list li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Product Hero - Small Mobile */
+    .product-hero {
+        padding: calc(5rem + 28px) 0.75rem 2rem;
+    }
+
+    .product-hero-title {
+        font-size: clamp(2.5rem, 18vw, 4rem);
+        letter-spacing: 0;
+    }
+
+    /* Flower Diagram - Small Mobile */
+    .flower-diagram {
+        width: 220px;
+        height: 220px;
+    }
+
+    .petal {
+        width: 75px;
+        height: 110px;
+        padding-top: 10px;
+        margin-left: -37.5px;
+        margin-top: -110px;
+    }
+
+    .petal-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .petal-label {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.75rem;
+        top: -40px;
+    }
+
+    .flower-diagram::after {
+        width: 35px;
+        height: 35px;
+    }
+
+    .app-item {
+        padding: 1rem;
+    }
+
+    .app-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .app-item p {
+        font-size: 0.85rem;
+    }
+
+    .testimonial-card {
+        padding: 1.25rem;
+    }
+
+    .t-role {
+        font-size: 1rem;
+    }
+
+    .t-quote {
+        font-size: 0.9rem;
+    }
+
+    .t-text {
+        font-size: 0.85rem;
+    }
 }
 
 
@@ -5067,5 +5742,1036 @@ body {
         flex-direction: column;
         text-align: center;
         padding: 2rem;
+    }
+}
+
+/* ============================================
+   COMPREHENSIVE MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* ---- TABLET (max-width: 1024px) ---- */
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: clamp(3rem, 8vh, 6rem);
+    }
+
+    .section-container {
+        padding: 0 1.5rem;
+    }
+
+    .urban-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .footer-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ---- MOBILE LARGE (max-width: 768px) ---- */
+@media (max-width: 768px) {
+    /* Global Tweaks */
+    html, body {
+        font-size: 15px;
+    }
+
+    /* Hide custom cursor on mobile/touch devices */
+    #cursor-glow,
+    #cursor-outer {
+        display: none !important;
+    }
+
+    /* Announcement Banner */
+    .announcement-banner {
+        height: 32px;
+    }
+
+    .banner-item {
+        font-size: 0.65rem;
+        padding: 0 1rem;
+        gap: 0.5rem;
+    }
+
+    .banner-icon {
+        font-size: 1rem;
+    }
+
+    /* Navigation */
+    .navbar {
+        padding: 1rem 0;
+        top: 32px;
+    }
+
+    .navbar.scrolled {
+        top: 32px;
+        padding: 0.75rem 0;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    .nav-logo {
+        font-size: 1.4rem;
+    }
+
+    .nav-shield-svg {
+        width: 28px;
+        height: 34px;
+    }
+
+    .nav-menu {
+        padding: 5rem 1.5rem 2rem;
+        width: 85%;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: calc(5rem + 32px) 1rem 2rem;
+        min-height: auto;
+    }
+
+    .hero-badge {
+        font-size: 0.65rem;
+        padding: 0.5rem 1rem;
+        letter-spacing: 0.1em;
+    }
+
+    .hero-title {
+        font-size: clamp(2.2rem, 12vw, 3.5rem);
+        gap: 0.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .inline-shield {
+        width: clamp(40px, 14vw, 60px);
+        height: clamp(48px, 16vw, 72px);
+    }
+
+    .hero-shield-s {
+        font-size: 28px;
+    }
+
+    .hero-tagline {
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        margin-bottom: 1.5rem;
+    }
+
+    .tagline-divider {
+        display: none;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    .hero-scroll {
+        margin-top: 1.5rem;
+    }
+
+    .scroll-indicator {
+        width: 20px;
+        height: 32px;
+    }
+
+    .hero-scroll span {
+        font-size: 0.6rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+        margin-top: 2rem;
+    }
+
+    .stat-divider {
+        width: 50px;
+        height: 1px;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
+    }
+
+    .stat-suffix {
+        font-size: 1rem;
+    }
+
+    .stat-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+    }
+
+    /* Section Headers */
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-tag {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+    }
+
+    .section-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .title-underline {
+        width: 80px;
+        height: 3px;
+    }
+
+    .title-underline::before,
+    .title-underline::after {
+        width: 8px;
+        height: 8px;
+    }
+
+    .title-underline::before {
+        left: -15px;
+    }
+
+    .title-underline::after {
+        right: -15px;
+    }
+
+    /* Urbanization Section */
+    .urban-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .urban-main-text {
+        font-size: 1rem;
+    }
+
+    .urban-main-text strong {
+        font-size: 1.2rem;
+    }
+
+    .urban-quote {
+        font-size: 0.95rem;
+        padding-left: 1rem;
+    }
+
+    .mission-box {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .mission-icon {
+        font-size: 2.2rem;
+    }
+
+    .mission-desc {
+        font-size: 1rem;
+    }
+
+    /* About Section */
+    .about-visual {
+        order: -1;
+    }
+
+    .image-frame {
+        max-width: 280px;
+    }
+
+    .about-logo-img {
+        max-width: 120px;
+    }
+
+    .floating-badge {
+        font-size: 0.65rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .badge-1 {
+        top: 5%;
+        right: 0;
+    }
+
+    .badge-2 {
+        bottom: 10%;
+        left: 0;
+    }
+
+    .about-subtitle {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+    }
+
+    .about-paragraph {
+        font-size: 0.95rem;
+    }
+
+    .first-letter {
+        font-size: 2.2rem;
+    }
+
+    .feature-item {
+        padding: 1rem;
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .feature-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .feature-content h4 {
+        font-size: 0.9rem;
+    }
+
+    .feature-content p {
+        font-size: 0.8rem;
+    }
+
+    /* Mission Vision */
+    .mv-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .mv-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .mv-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .mv-title {
+        font-size: 1.4rem;
+    }
+
+    .mv-text {
+        font-size: 0.95rem;
+    }
+
+    /* Products Section */
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .product-card {
+        padding: 1.5rem;
+    }
+
+    .product-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1rem;
+    }
+
+    .product-title {
+        font-size: 1.5rem;
+    }
+
+    .product-category {
+        font-size: 0.65rem;
+    }
+
+    .distributor-badge {
+        font-size: 0.55rem;
+        padding: 0.25rem 0.6rem;
+    }
+
+    .product-desc {
+        font-size: 0.9rem;
+    }
+
+    .product-features li {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-number {
+        font-size: 3.5rem;
+    }
+
+    .product-actions {
+        flex-direction: column;
+    }
+
+    .video-trigger {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Certifications */
+    .certs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .cert-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .cert-icon {
+        font-size: 2.5rem;
+    }
+
+    .cert-info h4 {
+        font-size: 1rem;
+    }
+
+    .cert-info p {
+        font-size: 0.8rem;
+    }
+
+    /* Team Section */
+    .team-intro {
+        font-size: 0.95rem;
+        margin-top: -1rem;
+    }
+
+    .team-values {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .value-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .value-icon {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .value-card h4 {
+        font-size: 0.85rem;
+    }
+
+    .value-card p {
+        font-size: 0.8rem;
+    }
+
+    /* Clientele Marquee */
+    .client-marquee {
+        margin-top: 3rem;
+        padding: 2rem 0;
+    }
+
+    .client-logo-item {
+        flex: 0 0 160px;
+        height: 80px;
+        padding: 0.8rem;
+    }
+
+    .client-track {
+        gap: 1.5rem;
+    }
+
+    .client-marquee::before,
+    .client-marquee::after {
+        width: 60px;
+    }
+
+    .vaidhya-icon-wrap {
+        width: 40px;
+        height: 40px;
+    }
+
+    .vaidhya-plus {
+        font-size: 2rem;
+    }
+
+    .vaidhya-text {
+        font-size: 0.6rem;
+    }
+
+    /* Contact Section */
+    .contact-subtitle {
+        font-size: clamp(1.3rem, 5vw, 1.6rem);
+    }
+
+    .contact-description {
+        font-size: 0.9rem;
+    }
+
+    .contact-item {
+        gap: 0.75rem;
+    }
+
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .contact-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .contact-text h4 {
+        font-size: 0.8rem;
+    }
+
+    .contact-text p {
+        font-size: 0.85rem;
+    }
+
+    .emergency-box {
+        padding: 1rem;
+    }
+
+    .emergency-label {
+        font-size: 0.65rem;
+    }
+
+    .emergency-number {
+        font-size: 1.2rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .form-header p {
+        font-size: 0.8rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-group label {
+        font-size: 0.7rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.85rem;
+        font-size: 0.9rem;
+    }
+
+    .form-submit {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer-main {
+        padding: 2.5rem 0;
+    }
+
+    .footer-logo {
+        font-size: 1.2rem;
+    }
+
+    .footer-tagline {
+        font-size: 0.7rem;
+    }
+
+    .footer-description {
+        font-size: 0.85rem;
+    }
+
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .footer-column h4 {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer-column a {
+        font-size: 0.8rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .footer-copyright {
+        font-size: 0.75rem;
+    }
+
+    .social-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .social-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Video Modal */
+    .modal-content {
+        width: 95%;
+        border-radius: 8px;
+    }
+
+    .modal-close {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    /* Preloader */
+    .splash-logo-text {
+        font-size: clamp(1.8rem, 10vw, 3rem);
+    }
+
+    .splash-shield-container {
+        width: clamp(45px, 14vw, 70px);
+        margin: 0 0.1rem;
+    }
+
+    .splash-shield-s {
+        font-size: 35px;
+    }
+
+    .loader-content {
+        bottom: 10%;
+        width: 85%;
+    }
+
+    .loader-status {
+        font-size: 0.5rem;
+        letter-spacing: 0.3em;
+    }
+
+    /* Floating Entities - reduce for performance */
+    .floating-entities {
+        opacity: 0.5;
+    }
+
+    .entity {
+        transform: scale(0.5) !important;
+    }
+
+    .v3, .v4, .v6, .v7, .v8, .v9,
+    .m6, .m7, .m9, .m10, .m11, .m12, .m13, .m14,
+    .r3, .r4, .r6, .r7, .r8,
+    .d6, .d7, .d9, .d10, .d11, .d12, .d13, .d14, .d15 {
+        display: none !important;
+    }
+}
+
+/* ---- MOBILE SMALL (max-width: 480px) ---- */
+@media (max-width: 480px) {
+    html, body {
+        font-size: 14px;
+    }
+
+    .section-container {
+        padding: 0 1rem;
+    }
+
+    /* Announcement Banner */
+    .announcement-banner {
+        height: 28px;
+    }
+
+    .banner-item {
+        font-size: 0.55rem;
+        padding: 0 0.75rem;
+    }
+
+    /* Navigation */
+    .navbar {
+        top: 28px;
+    }
+
+    .navbar.scrolled {
+        top: 28px;
+    }
+
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-shield-svg {
+        width: 24px;
+        height: 30px;
+    }
+
+    .nav-toggle span {
+        width: 24px;
+    }
+
+    /* Hero */
+    .hero {
+        padding: calc(4.5rem + 28px) 0.75rem 1.5rem;
+    }
+
+    .hero-badge {
+        font-size: 0.55rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .hero-title {
+        font-size: clamp(1.8rem, 14vw, 2.8rem);
+    }
+
+    .inline-shield {
+        width: clamp(32px, 16vw, 50px);
+        height: clamp(38px, 18vw, 60px);
+    }
+
+    .hero-shield-s {
+        font-size: 22px;
+    }
+
+    .hero-tagline {
+        font-size: 0.65rem;
+        gap: 0.4rem 0.8rem;
+    }
+
+    .hero-description {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    .hero-stats {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .stat-number {
+        font-size: 1.4rem;
+    }
+
+    .stat-label {
+        font-size: 0.55rem;
+    }
+
+    /* Sections */
+    .section-title {
+        font-size: clamp(1.8rem, 10vw, 2.5rem);
+    }
+
+    .urban-title {
+        font-size: clamp(1.8rem, 10vw, 2.5rem);
+    }
+
+    /* Certifications */
+    .certs-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .cert-card {
+        flex-direction: row;
+        text-align: left;
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    .cert-icon {
+        font-size: 2rem;
+        margin-bottom: 0;
+    }
+
+    /* Team Values */
+    .team-values {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .value-card {
+        flex-direction: row;
+        text-align: left;
+        gap: 1rem;
+    }
+
+    .value-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0;
+    }
+
+    /* Footer */
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Preloader */
+    .splash-logo-text {
+        font-size: clamp(1.5rem, 12vw, 2.5rem);
+    }
+
+    .splash-shield-container {
+        width: clamp(35px, 16vw, 55px);
+    }
+
+    .splash-shield-s {
+        font-size: 28px;
+    }
+}
+
+/* ---- EXTRA SMALL DEVICES (max-width: 360px) ---- */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .inline-shield {
+        width: 28px;
+        height: 34px;
+    }
+
+    .hero-shield-s {
+        font-size: 18px;
+    }
+
+    .hero-tagline {
+        font-size: 0.6rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .nav-logo {
+        font-size: 1rem;
+    }
+
+    .nav-shield-svg {
+        width: 20px;
+        height: 24px;
+    }
+}
+
+/* ---- LANDSCAPE MOBILE ---- */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding-top: calc(4rem + 32px);
+        padding-bottom: 1rem;
+    }
+
+    .hero-stats {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .stat-divider {
+        width: 1px;
+        height: 40px;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .preloader {
+        padding: 1rem;
+    }
+
+    .splash-logo {
+        transform: scale(0.8);
+    }
+
+    .loader-content {
+        bottom: 5%;
+    }
+}
+
+/* ---- TOUCH DEVICE OPTIMIZATIONS ---- */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects that don't work on touch */
+    .nav-link::before {
+        display: none;
+    }
+
+    .btn:hover {
+        transform: none;
+    }
+
+    .product-card:hover {
+        transform: none;
+    }
+
+    .service-card:hover {
+        transform: none;
+    }
+
+    .mv-card:hover {
+        transform: none;
+    }
+
+    .feature-item:hover {
+        transform: none;
+    }
+
+    /* Improve tap targets */
+    .nav-link {
+        padding: 0.75rem 0;
+    }
+
+    .btn {
+        min-height: 48px;
+    }
+
+    .social-icon {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Disable custom cursor on touch */
+    #cursor-glow,
+    #cursor-outer {
+        display: none !important;
+    }
+}
+
+/* ---- REDUCE MOTION FOR ACCESSIBILITY ---- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .preloader {
+        display: none !important;
+    }
+
+    .floating-entities {
+        display: none !important;
+    }
+
+    .client-track {
+        animation: none !important;
+    }
+
+    .banner-track {
+        animation: none !important;
+    }
+}
+/* 
+============================================
+BIOSTER PAGE PRODUCT HERO STYLES
+============================================
+*/
+
+.bioster-showcase-container {
+    position: relative;
+    max-width: 600px;
+    margin: 3rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bioster-hero-img {
+    position: relative;
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    z-index: 2;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+    animation: floatBioster 6s ease-in-out infinite;
+}
+
+.bioster-glow-back {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(118, 185, 71, 0.4) 0%, transparent 70%);
+    z-index: 1;
+    filter: blur(40px);
+    animation: pulseBiosterGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatBioster {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulseBiosterGlow {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+@media (max-width: 768px) {
+    .bioster-showcase-container {
+        max-width: 90%;
+        margin: 2rem auto;
+    }
+    
+    .bioster-hero-img {
+        max-height: 350px;
     }
 }
