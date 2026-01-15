@@ -1712,7 +1712,7 @@ body {
     width: 100%;
     z-index: 1000;
     padding: 1.5rem 0;
-    top: 40px;
+    /* top: 40px; */
     /* Adjust for banner */
     transition: all var(--transition-medium);
 }
@@ -1721,19 +1721,19 @@ body {
     background: rgba(10, 10, 15, 0.95);
     backdrop-filter: blur(20px);
     padding: 1rem 0;
-    top: 40px;
+    /* top: 40px; */
     /* Stay below the banner */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
     .navbar {
-        top: 35px;
+        /* top: 35px; */
         /* Mobile banner height */
     }
 
     .navbar.scrolled {
-        top: 35px;
+        /* top: 35px; */
     }
 }
 
@@ -2067,6 +2067,24 @@ body {
 
 .loaded .tagline-word {
     animation: taglineReveal 0.5s ease both;
+}
+
+.hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(0.3rem, 1vw, 0.8rem);
+    font-weight: 700;
+    color: #f4f6f3; /* Vibrant Green */
+    text-align: center;
+    letter-spacing: 0.25em;
+    width: 50%;
+    margin-left: auto;
+    margin-right: 5%;
+    margin-top: -1.5rem; /* Pull closer to HAK */
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px rgba(168, 255, 120, 0.4);
+    animation: fadeInUp 1s ease 1.2s both;
+    position: relative;
+    z-index: 20;
 }
 
 .tagline-word:nth-child(1) {
@@ -5792,11 +5810,11 @@ body {
     /* Navigation */
     .navbar {
         padding: 1rem 0;
-        top: 32px;
+        /* top: 32px; */
     }
 
     .navbar.scrolled {
-        top: 32px;
+        /* top: 32px; */
         padding: 0.75rem 0;
     }
 
@@ -5847,9 +5865,9 @@ body {
         height: clamp(48px, 16vw, 72px);
     }
 
-    .hero-shield-s {
+    /* .hero-shield-s {
         font-size: 28px;
-    }
+    } */
 
     .hero-tagline {
         flex-wrap: wrap;
@@ -6356,9 +6374,9 @@ body {
         margin: 0 0.1rem;
     }
 
-    .splash-shield-s {
+    /* .splash-shield-s {
         font-size: 35px;
-    }
+    } */
 
     .loader-content {
         bottom: 10%;
@@ -6409,11 +6427,11 @@ body {
 
     /* Navigation */
     .navbar {
-        top: 28px;
+        /* top: 28px; */
     }
 
     .navbar.scrolled {
-        top: 28px;
+        /* top: 28px; */
     }
 
     .nav-logo {
@@ -6448,9 +6466,9 @@ body {
         height: clamp(38px, 18vw, 60px);
     }
 
-    .hero-shield-s {
+    /* .hero-shield-s {
         font-size: 22px;
-    }
+    } */
 
     .hero-tagline {
         font-size: 0.65rem;
@@ -6537,9 +6555,9 @@ body {
         width: clamp(35px, 16vw, 55px);
     }
 
-    .splash-shield-s {
+    /* .splash-shield-s {
         font-size: 28px;
-    }
+    } */
 }
 
 /* ---- EXTRA SMALL DEVICES (max-width: 360px) ---- */
@@ -6553,9 +6571,9 @@ body {
         height: 34px;
     }
 
-    .hero-shield-s {
+    /* .hero-shield-s {
         font-size: 18px;
-    }
+    } */
 
     .hero-tagline {
         font-size: 0.6rem;

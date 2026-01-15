@@ -500,6 +500,41 @@ function initFormHandling() {
     const form = document.getElementById('contactForm');
 
     if (form) {
+        const serviceSelect = document.getElementById('service');
+        const messageTextarea = document.getElementById('message');
+
+        // Pre-fill message based on service selection
+        if (serviceSelect && messageTextarea) {
+            serviceSelect.addEventListener('change', function() {
+                const service = this.value;
+                let defaultMessage = "";
+
+                if (service === 'demo') {
+                    defaultMessage = "Hello! I am interested in experiencing your product. Can you tell me more?";
+                } else if (service === 'reseller') {
+                    defaultMessage = "Hello! I am interested in becoming a reseller of your products. Can you tell me more?";
+                }
+
+                // If user hasn't typed anything custom or the field matches another default, update it
+                const currentVal = messageTextarea.value.trim();
+                const defaults = [
+                    "Hello! I am interested in experiencing your product. Can you tell me more?",
+                    "Hello! I am interested in becoming a reseller of your products. Can you tell me more?",
+                    ""
+                ];
+                
+                if (defaults.includes(currentVal) || currentVal === "") {
+                    messageTextarea.value = defaultMessage;
+                    // Trigger focus animation if needed or just handle via CSS
+                    if (defaultMessage) {
+                        messageTextarea.parentElement.classList.add('focused');
+                    } else {
+                        messageTextarea.parentElement.classList.remove('focused');
+                    }
+                }
+            });
+        }
+
         form.addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -515,13 +550,24 @@ function initFormHandling() {
             submitBtn.disabled = true;
 
             setTimeout(() => {
+                // Map service values to readable labels
+                const serviceLabels = {
+                    'demo': 'Product Demo',
+                    'reseller': 'Reseller Partnership',
+                    'general': 'General Inquiry'
+                };
+                const serviceDisplay = serviceLabels[data.service] || data.service;
+
                 // Construct WhatsApp Message
-                const message = `*New Consultation Request*%0A%0A` +
+                // We use the textarea content directly as the user sees it
+                const userMessage = data.message || 'No additional message';
+
+                const message = `${userMessage}%0A%0A` +
+                    `*-- User Details --*%0A` +
                     `*Name:* ${data.firstName} ${data.lastName}%0A` +
                     `*Email:* ${data.email}%0A` +
                     `*Phone:* ${data.phone || 'Not provided'}%0A` +
-                    `*Service:* ${data.service}%0A` +
-                    `*Message:* ${data.message || 'No message'}`;
+                    `*Inquiry Type:* ${serviceDisplay}`;
 
                 const whatsappUrl = `https://wa.me/918886234101?text=${message}`;
 
@@ -533,6 +579,7 @@ function initFormHandling() {
 
                 // Reset form
                 form.reset();
+                messageTextarea.parentElement.classList.remove('focused');
 
                 setTimeout(() => {
                     submitBtn.querySelector('.btn-text').textContent = originalText;
@@ -550,8 +597,15 @@ function initFormHandling() {
             });
 
             input.addEventListener('blur', function () {
-                this.parentElement.classList.remove('focused');
+                if (!this.value) {
+                    this.parentElement.classList.remove('focused');
+                }
             });
+            
+            // Check initial state
+            if (input.value) {
+                input.parentElement.classList.add('focused');
+            }
         });
     }
 }
