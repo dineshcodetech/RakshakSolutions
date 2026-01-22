@@ -26,9 +26,9 @@
     --gradient-dark: linear-gradient(180deg, #05050a 0%, #0f0f15 100%);
 
     /* Typography */
-    --font-display: 'Orbitron', sans-serif;
-    --font-heading: 'Bebas Neue', sans-serif;
-    --font-body: 'Rajdhani', sans-serif;
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
 
     /* Spacing & Transitions */
     --section-padding: clamp(4rem, 10vh, 10rem);
@@ -1128,6 +1128,71 @@
     transform: rotate(-20deg);
 }
 
+/* Extra Density Microbes */
+.bacteria-extra-1 {
+    width: 90px;
+    height: auto;
+    top: 40%;
+    left: 80%;
+    opacity: 0.5;
+    animation: floatBacteria1 22s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.4));
+}
+
+.bacteria-extra-2 {
+    width: 70px;
+    height: auto;
+    bottom: 40%;
+    right: 70%;
+    opacity: 0.4;
+    animation: floatBacteria2 26s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+}
+
+.virus-extra-1 {
+    width: 80px;
+    height: auto;
+    top: 60%;
+    left: 15%;
+    opacity: 0.6;
+    animation: floatVirus2 24s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
+}
+
+.virus-extra-2 {
+    width: 65px;
+    height: auto;
+    top: 30%;
+    right: 40%;
+    opacity: 0.5;
+    animation: floatVirus4 30s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.4));
+}
+
+.fungi-extra-1 {
+    width: 80px;
+    height: auto;
+    bottom: 15%;
+    left: 45%;
+    opacity: 0.5;
+    animation: floatFungi2 27s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.4));
+}
+
+/* High Density Packs */
+.hd-1 { top: 5%; left: 40%; width: 50px; animation: floatVirus1 25s infinite; opacity: 0.4; }
+.hd-2 { top: 15%; left: 70%; width: 60px; animation: floatBacteria1 30s infinite; opacity: 0.35; }
+.hd-3 { top: 35%; right: 5%; width: 45px; animation: floatVirus2 22s infinite; opacity: 0.45; }
+.hd-4 { bottom: 10%; right: 50%; width: 55px; animation: floatBacteria2 28s infinite; opacity: 0.4; }
+.hd-5 { bottom: 30%; left: 5%; width: 40px; animation: floatVirus3 35s infinite; opacity: 0.3; }
+.hd-6 { top: 50%; right: 40%; width: 70px; animation: floatBacteria3 26s infinite; opacity: 0.4; }
+.hd-7 { bottom: 25%; left: 75%; width: 50px; animation: floatVirus4 32s infinite; opacity: 0.35; }
+.hd-8 { top: 80%; left: 10%; width: 65px; animation: floatBacteria4 29s infinite; opacity: 0.3; }
+.hd-9 { top: 25%; left: 25%; width: 45px; animation: floatVirus1 31s infinite; opacity: 0.4; }
+.hd-10 { bottom: 50%; right: 15%; width: 55px; animation: floatBacteria1 27s infinite; opacity: 0.35; }
+
+
+
 /* Floating Animations for Bacteria */
 @keyframes floatBacteria1 {
     0% {
@@ -1333,12 +1398,12 @@
         opacity: 0.4 !important;
     }
     
-    .bacteria-2,
+    /* .bacteria-2,
     .bacteria-4,
     .virus-img-3,
     .fungi-2 {
         display: none !important;
-    }
+    } */
 }
 
 @media (max-width: 480px) {
@@ -1347,11 +1412,11 @@
         opacity: 0.3 !important;
     }
     
-    .bacteria-3,
+    /* .bacteria-3,
     .virus-img-4,
     .fungi-3 {
         display: none !important;
-    }
+    } */
 }
 
 /* Preloader Microbes */
@@ -1447,12 +1512,12 @@
     }
 
     /* Hide some elements on mobile to improve performance */
-    .m2,
+    /* .m2,
     .r2,
     .d4,
     .m4 {
         display: none !important;
-    }
+    } */
 
     .entity {
         animation-duration: 40s !important;
@@ -1791,6 +1856,8 @@ body {
     gap: 6px;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1100; /* Higher than menu */
+    position: relative;
 }
 
 .nav-toggle span {
@@ -1836,6 +1903,45 @@ body {
     width: 100%;
 }
 
+.btn-nav {
+    background: var(--gradient-blue);
+    color: #000 !important;
+    padding: 0.6rem 1.8rem !important;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-medium) !important;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+    border: none;
+}
+
+.btn-nav::before {
+    display: none !important;
+}
+
+.btn-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px var(--color-blue-glow);
+    filter: brightness(1.1);
+    color: #000 !important;
+}
+
+@media (max-width: 768px) {
+    .btn-nav {
+        margin-top: 3rem; /* Pushes it down in the column */
+        width: 100%;
+        padding: 1.2rem !important;
+        text-align: center;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
+        background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    }
+}
+
+
 /* Mobile Navigation */
 @media (max-width: 768px) {
     .nav-toggle {
@@ -1849,20 +1955,37 @@ body {
         width: 80%;
         max-width: 400px;
         height: 100vh;
-        background: var(--color-bg-secondary);
+        background: #05050a; /* Ensure solid background */
         flex-direction: column;
-        padding: 6rem 2rem 2rem;
-        gap: 1.5rem;
-        transition: right var(--transition-medium);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        padding: 8rem 2rem 4rem;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: -10px 0 50px rgba(0, 0, 0, 0.8);
+        z-index: 1050;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav-menu li:last-child {
+        margin-top: auto; /* Push contact button to bottom */
     }
 
     .nav-menu.active {
         right: 0;
     }
 
+    .nav-toggle.active {
+        position: fixed;
+        right: 2rem;
+        top: 2rem;
+    }
+
     .nav-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(6px, 6px);
+        background: #fff; /* Ensure contrast on dark menu */
     }
 
     .nav-toggle.active span:nth-child(2) {
@@ -1871,8 +1994,10 @@ body {
 
     .nav-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
+        background: #fff;
     }
 }
+
 
 /* ============================================
    HERO SECTION
@@ -6874,3 +6999,138 @@ BIOSTER LUNG HEALTH SECTION
         text-align: center;
     }
 }
+
+/* ============================================
+   FLOATING ACTION BUTTON (FAB)
+   ============================================ */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column; /* Menu on top, Main button at bottom */
+    align-items: center;
+    gap: 15px;
+}
+
+.fab-main {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-red-primary);
+    border: none;
+    box-shadow: 0 4px 20px rgba(255, 65, 108, 0.5);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-medium);
+    z-index: 2;
+    order: 2; /* Ensure it stays at the bottom */
+}
+
+.fab-main:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(255, 65, 108, 0.7);
+}
+
+.fab-main svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    transition: var(--transition-medium);
+}
+
+.fab-icon-close {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.fab-icon-open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.fab-container.active .fab-icon-open {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.fab-container.active .fab-icon-close {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.fab-menu {
+    display: flex;
+    flex-direction: column; /* Stack icons normally */
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    order: 1; /* Stay above the main button */
+}
+
+.fab-container.active .fab-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.fab-item {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: var(--transition-medium);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.fab-item svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+}
+
+.fab-whatsapp {
+    background: #25D366;
+}
+
+.fab-phone {
+    background: #4285F4;
+}
+
+.fab-email {
+    background: #FBBC05;
+}
+
+.fab-item:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+    .fab-container {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+    .fab-main {
+        width: 50px;
+        height: 50px;
+    }
+    .fab-item {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+

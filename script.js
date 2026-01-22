@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initFormHandling();
     initVideoModal();
     initFlowerDiagram();
+    initContactFab();
 });
 
 /* ============================================
@@ -891,4 +892,34 @@ function initFlowerDiagram() {
         });
     });
 }
+
+/* ============================================
+   FLOATING ACTION BUTTON (FAB) LOGIC
+   ============================================ */
+function initContactFab() {
+    const fabContainer = document.getElementById('contactFab');
+    const fabMain = document.getElementById('fabMain');
+    
+    if (!fabContainer || !fabMain) return;
+
+    fabMain.addEventListener('click', (e) => {
+        e.stopPropagation();
+        fabContainer.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!fabContainer.contains(e.target)) {
+            fabContainer.classList.remove('active');
+        }
+    });
+
+    // Close menu on scroll
+    window.addEventListener('scroll', () => {
+        if (fabContainer.classList.contains('active')) {
+            fabContainer.classList.remove('active');
+        }
+    }, { passive: true });
+}
+
 
