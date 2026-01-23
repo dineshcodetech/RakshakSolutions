@@ -274,6 +274,18 @@
                 <li><a href="#team" class="nav-link">Team</a></li>
                 <li><a href="#clientele" class="nav-link">Clientele</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
+                <style>
+                    /* Show only on screens smaller than 768px */
+                    @media (max-width: 767px) {
+                        #mobile-demo-link { display: block !important; }
+                    }
+                    </style>
+
+                    <!-- Initial state is hidden via inline style -->
+                    <li id="mobile-demo-link" style="display: none;">
+                    <a href="demo.html" class="nav-link">Book a Demo</a>
+                    </li>
+                <!-- <li><a href="demo.html" class="nav-link d-block d-md-none">Book a Demo</a></li> -->
                 <li><a href="demo.html" class="nav-link btn-nav">Book a Demo</a></li>
             </ul>
         </div>
