@@ -5006,8 +5006,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1.2rem;
-    background: rgba(255, 255, 255, 0.08); /* Slightly lighter for contrast */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 16px;
     backdrop-filter: blur(10px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -5019,17 +5019,17 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1), transparent 70%);
+    background: radial-gradient(circle at center, rgba(0, 210, 255, 0.05), transparent 70%);
     opacity: 0;
     transition: opacity 0.4s ease;
 }
 
 .client-logo-item:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: #ffffff;
     border-color: var(--color-blue-primary);
     transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
-                0 0 20px rgba(0, 210, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 
+                0 0 20px rgba(0, 210, 255, 0.3);
 }
 
 .client-logo-item:hover::after {
